@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "codingtest-docs",
+      "name": "bible",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "docs-app"],
+      "runtimeArgs": ["run", "dev", "--prefix", "app"],
       "port": 3000
     }
   ]
