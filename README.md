@@ -1,6 +1,8 @@
 # 파이썬 코딩테스트
 
 > 코딩테스트를 통과하는 데 필요한 파이썬만, 이유까지 함께.
+>
+> **https://me.twinklelabs.kr/python-coding-bible/**
 
 문법서는 이미 많다. 이 책은 시험장에서 쓰는 것만 골라 담되 외우라고 하지 않는다 —
 왜 그 코드가 시간 초과를 피하는지, 왜 그 선택이 손해가 아닌지까지 적었다.
@@ -69,9 +71,7 @@ python-codingtest/
 `.github/workflows/deploy.yml`이 `main` 푸시마다 `app/`을 굽고 Pages로 내보낸다.
 Vite의 `base`가 `'./'`라 저장소 이름이 무엇이든 하위 경로에서 그대로 열린다.
 
-> 이 워크플로는 **python-codingtest가 자체 저장소의 루트일 때** 동작한다.
-> 지금은 Twinkle Labs 저장소 안에 있으므로, Pages를 켜기 전에 polaris처럼
-> 제 저장소로 떠나보내야 한다.
+읽는 곳 — **https://me.twinklelabs.kr/python-coding-bible/**
 
 ## 강을 하나 더 쓰려면
 
