@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.cache/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+.DS_Store
