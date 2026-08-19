@@ -10,7 +10,7 @@ export default function SolveBigNumber() {
       part="4부 · 기출 해설"
       title="가장 큰 수"
       lede="«어느 쪽이 앞이어야 하는가»를 한 값만 보고는 정할 수 없는 정렬. 2-6의 cmp_to_key 가 필요한 자리입니다."
-      tags={['4-3', '정렬', 'Lv.2']}
+      tags={['4-4', '정렬', 'Lv.2']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42746' }}
     >
       <Section no={1} title="문제">

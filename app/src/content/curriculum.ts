@@ -25,9 +25,14 @@ import ShortestPath from './lessons/ShortestPath';
 import GraphTheory from './lessons/GraphTheory';
 
 import SolveGymSuit from './lessons/SolveGymSuit';
-import SolveBfsDfs from './lessons/SolveBfsDfs';
+import SolveMarathon from './lessons/SolveMarathon';
+import SolveDeploy from './lessons/SolveDeploy';
 import SolveBigNumber from './lessons/SolveBigNumber';
-import SolveHideAndSeek from './lessons/SolveHideAndSeek';
+import SolveTargetNumber from './lessons/SolveTargetNumber';
+import SolveGameMap from './lessons/SolveGameMap';
+import SolveNetwork from './lessons/SolveNetwork';
+import SolveImmigration from './lessons/SolveImmigration';
+import SolveSchoolPath from './lessons/SolveSchoolPath';
 
 export interface LessonMeta {
   id: string;
@@ -90,12 +95,17 @@ export const PARTS: Part[] = [
   {
     id: 'part4',
     title: '4부 · 기출 해설',
-    blurb: '앞의 세 부에서 익힌 것을 실제 문제 위에서 확인합니다. 틀리는 풀이부터 봅니다.',
+    blurb: '앞의 세 부에서 익힌 것을 프로그래머스 기출 위에서 확인합니다. 틀리는 풀이부터 봅니다.',
     lessons: [
-      { id: 'p4-gym', no: '4-1', title: '체육복', blurb: '프로그래머스 · 그리디', page: SolveGymSuit },
-      { id: 'p4-1260', no: '4-2', title: 'DFS와 BFS', blurb: '백준 1260 · 탐색', page: SolveBfsDfs },
-      { id: 'p4-bignum', no: '4-3', title: '가장 큰 수', blurb: '프로그래머스 · 정렬', page: SolveBigNumber },
-      { id: 'p4-hide', no: '4-4', title: '숨바꼭질', blurb: '백준 1697 · BFS', page: SolveHideAndSeek },
+      { id: 'p4-gym', no: '4-1', title: '체육복', blurb: '그리디 · Lv.1', page: SolveGymSuit },
+      { id: 'p4-marathon', no: '4-2', title: '완주하지 못한 선수', blurb: '해시 · Lv.1', page: SolveMarathon },
+      { id: 'p4-deploy', no: '4-3', title: '기능개발', blurb: '큐 · Lv.2', page: SolveDeploy },
+      { id: 'p4-bignum', no: '4-4', title: '가장 큰 수', blurb: '정렬 · Lv.2', page: SolveBigNumber },
+      { id: 'p4-target', no: '4-5', title: '타겟 넘버', blurb: 'DFS · Lv.2', page: SolveTargetNumber },
+      { id: 'p4-gamemap', no: '4-6', title: '게임 맵 최단거리', blurb: 'BFS · Lv.2', page: SolveGameMap },
+      { id: 'p4-network', no: '4-7', title: '네트워크', blurb: '연결 요소 · Lv.3', page: SolveNetwork },
+      { id: 'p4-immigration', no: '4-8', title: '입국심사', blurb: '파라메트릭 서치 · Lv.3', page: SolveImmigration },
+      { id: 'p4-schoolpath', no: '4-9', title: '등굣길', blurb: 'DP · Lv.3', page: SolveSchoolPath },
     ],
   },
 ];
