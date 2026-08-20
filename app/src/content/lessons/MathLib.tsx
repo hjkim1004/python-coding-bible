@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function MathLib() {
       lede="최대공약수·소수 판별·조합의 수. 직접 짜면 실수하기 쉬운 계산들을 표준 라이브러리가 정확하고 빠르게 해 줍니다."
       tags={['2-5', 'gcd와 lcm', '소수']}
     >
+      <Recall from="p1-number">
+        <p>
+          1-2에서 <strong>실수를 믿지 말라</strong>고 했습니다.
+          <Term>0.1 + 0.2</Term>가 <Term>0.3</Term>이 아니었던 그 이야기입니다.
+        </p>
+        <p>
+          그 경고가 여기서 한 번 더 값을 합니다. 제곱근을 <Term>n ** 0.5</Term>로 구하면
+          실수를 한 번 거치게 되고, <strong>큰 수에서 소수 판별이 조용히 틀립니다.</strong>
+          정수만으로 계산하는 도구들이 있습니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="약수와 배수">
         <Code label="gcd 와 lcm">{`
 import math

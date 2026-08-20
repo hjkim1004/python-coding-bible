@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Dp() {
       lede="같은 계산을 두 번 하지 않는 기술입니다. 어려운 것은 점화식이 아니라, 「무엇을 기억할지」를 정하는 일입니다."
       tags={['3-6', '점화식', '메모이제이션']}
     >
+      <Recall from="p2-functools">
+        <p>
+          2-6에서 <Term>@lru_cache</Term> 한 줄로 재귀 피보나치가
+          <Term>O(2^N)</Term>에서 <Term>O(N)</Term>이 되는 것을 봤습니다.
+          <strong>같은 답을 두 번 계산하지 않는다</strong>는 아이디어였습니다.
+        </p>
+        <p>
+          그 아이디어에 이름을 붙이면 다이나믹 프로그래밍입니다. 여기서 어려운 것은
+          점화식이 아니라 <strong>«무엇을 기억할지»를 한 문장으로 정하는 일</strong>입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="DP 인지 알아보는 두 조건">
         <ul>
           <li>

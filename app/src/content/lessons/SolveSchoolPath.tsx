@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -9,10 +10,22 @@ export default function SolveSchoolPath() {
     <Lesson
       part="4부 · 기출 해설"
       title="등굣길"
-      lede="«경로가 몇 가지인가»를 묻는 순간 완전 탐색을 접습니다. 3-6에서 정한 «무엇을 기억할지»가 여기서는 칸마다의 경우의 수입니다."
+      lede="«경로가 몇 가지인가»를 묻는 순간 완전 탐색을 접습니다. 59자리 수를 하나씩 셀 수는 없기 때문입니다."
       tags={['4-9', 'DP', 'Lv.3']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42898' }}
     >
+      <Recall from="p3-dp">
+        <p>
+          3-6에서 DP의 어려움은 점화식이 아니라
+          <strong>«무엇을 <Term>dp[i]</Term>에 담을지»를 한 문장으로 적는 일</strong>이라고 했습니다.
+          직전 줄만 있으면 되는 경우 2차원을 1차원으로 줄이는 것도 봤습니다.
+        </p>
+        <p>
+          여기서 그 한 문장은 «이 칸에 도달하는 방법의 수»입니다.
+          그리고 «나머지를 구하라»는 요구 자체가 <strong>세지 말고 누적하라는 신호</strong>입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           <Term>m × n</Term> 격자의 왼쪽 위에서 오른쪽 아래까지

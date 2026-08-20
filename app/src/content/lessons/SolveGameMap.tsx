@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -9,10 +10,22 @@ export default function SolveGameMap() {
     <Lesson
       part="4부 · 기출 해설"
       title="게임 맵 최단거리"
-      lede="3-3의 격자 BFS를 그대로 옮겨 적는 문제. «최단»이라는 말이 보이면 왜 DFS를 접어야 하는지를 확인합니다."
+      lede="«최단»이라는 말이 보이면 왜 DFS를 접어야 하는지, 그리고 상태를 한 칸 늘리면 어디까지 갈 수 있는지."
       tags={['4-6', 'BFS', 'Lv.2']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/1844' }}
     >
+      <Recall from="p3-dfsbfs">
+        <p>
+          3-3에서 <strong>«최단»이 보이고 이동 비용이 모두 같으면 BFS</strong>라고 했습니다.
+          방문 표시는 <strong>꺼낼 때가 아니라 넣을 때</strong>라는 것도요.
+        </p>
+        <p>
+          이 문제는 그 격자 BFS를 거의 그대로 옮겨 적습니다. 대신
+          <strong>DFS로 풀면 왜 안 되는지</strong>를 눈으로 확인하고,
+          상태를 한 칸 늘리는 확장까지 갑니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           <Term>n × m</Term> 격자 <Term>maps</Term>가 주어집니다. <Term>1</Term>은 길,

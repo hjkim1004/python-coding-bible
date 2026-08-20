@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -13,6 +14,18 @@ export default function SolveTargetNumber() {
       tags={['4-5', 'DFS', 'Lv.2']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/43165' }}
     >
+      <Recall from={['p3-dfsbfs', 'p2-itertools']}>
+        <p>
+          3-3에서 DFS는 <strong>한 갈래를 끝까지 파고든다</strong>고 했고,
+          2-3에서는 완전 탐색이 <strong>«작을 때만» 완전 탐색</strong>이라고 했습니다.
+        </p>
+        <p>
+          이 문제의 제한은 20입니다. <Term>2^20</Term>이면 약 100만 —
+          <strong>전부 해 봐도 된다는 허락</strong>입니다. 제한을 먼저 읽는 습관이
+          풀이를 고르는 자리입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           자연수 배열 <Term>numbers</Term>의 각 수 앞에 <Term>+</Term> 또는 <Term>-</Term>를

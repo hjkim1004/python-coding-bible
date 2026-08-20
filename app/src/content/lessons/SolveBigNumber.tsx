@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -9,10 +10,21 @@ export default function SolveBigNumber() {
     <Lesson
       part="4부 · 기출 해설"
       title="가장 큰 수"
-      lede="«어느 쪽이 앞이어야 하는가»를 한 값만 보고는 정할 수 없는 정렬. 2-6의 cmp_to_key 가 필요한 자리입니다."
+      lede="«어느 쪽이 앞이어야 하는가»를 한 값만 보고는 정할 수 없는 정렬. 두 값을 이어 붙여 봐야 압니다."
       tags={['4-4', '정렬', 'Lv.2']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42746' }}
     >
+      <Recall from={['p2-functools', 'p1-function']}>
+        <p>
+          1-7에서 <Term>key</Term>는 원소 하나에서 <strong>값 하나를 뽑는</strong> 것이라고 했고,
+          2-6에서는 그것으로 표현되지 않는 순서에 <Term>cmp_to_key</Term>를 쓴다고 했습니다.
+        </p>
+        <p>
+          이 문제가 바로 그 경우입니다. <Term>3</Term>과 <Term>30</Term> 중 누가 앞인지는
+          <strong>둘을 이어 붙여 봐야만</strong> 알 수 있습니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           정수 배열 <Term>numbers</Term>의 수들을 이어 붙여 만들 수 있는 가장 큰 수를

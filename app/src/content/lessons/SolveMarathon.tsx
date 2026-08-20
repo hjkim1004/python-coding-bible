@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -13,6 +14,17 @@ export default function SolveMarathon() {
       tags={['4-2', '해시', 'Lv.1']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42576' }}
     >
+      <Recall from={['p2-collections', 'p1-dict']}>
+        <p>
+          2-1에서 <Term>Counter</Term>가 세는 일만 한다고 했고, 뺄셈이 된다는 것도 봤습니다.
+          1-5에서는 <strong>집합에는 «몇 개인지»가 없다</strong>고 했습니다.
+        </p>
+        <p>
+          이 문제는 그 «몇 개인지»가 정답을 가릅니다. 동명이인이 있기 때문입니다.
+          <strong>집합으로 풀면 조용히 틀립니다.</strong>
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           마라톤 참가자 명단 <Term>participant</Term>와 완주자 명단 <Term>completion</Term>이

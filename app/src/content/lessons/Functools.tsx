@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Functools() {
       lede="한 줄로 재귀를 메모이제이션하고, 마이너스를 붙일 수 없는 값에 정렬 기준을 세웁니다."
       tags={['2-6', 'lru_cache', 'cmp_to_key']}
     >
+      <Recall from="p1-function">
+        <p>
+          1-7에서 정렬의 기준을 <Term>key</Term>로 세웠습니다. 원소 하나에서
+          <strong>값 하나를 뽑아</strong> 그것으로 줄을 세우는 방식이었습니다.
+        </p>
+        <p>
+          그런데 «어느 쪽이 앞인지»가 <strong>두 값을 함께 봐야만</strong> 정해지는
+          순서가 있습니다. 그럴 때 쓰는 것과, 같은 계산을 두 번 하지 않게 해 주는
+          캐시를 봅니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="lru_cache — 같은 답을 두 번 계산하지 않는다">
         <p>
           재귀로 쓴 피보나치는 같은 값을 수없이 다시 계산해 O(2^N)입니다.

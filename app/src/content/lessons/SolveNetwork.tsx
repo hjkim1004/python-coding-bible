@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -13,6 +14,18 @@ export default function SolveNetwork() {
       tags={['4-7', '연결 요소', 'Lv.3']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/43162' }}
     >
+      <Recall from={['p3-graph', 'p3-dfsbfs']}>
+        <p>
+          3-8에서 «같은 무리인가»를 묻는 유니온 파인드를 봤고,
+          3-3에서는 탐색으로 그래프를 훑는 뼈대를 익혔습니다.
+        </p>
+        <p>
+          이 문제는 <strong>같은 질문에 두 도구가 함께 답하는</strong> 자리입니다.
+          어느 쪽으로도 풀리므로, 둘을 나란히 놓고
+          <strong>언제 무엇을 고를지</strong>를 정리합니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           컴퓨터 <Term>n</Term>대의 연결 상태가 인접 행렬 <Term>computers</Term>로 주어집니다.

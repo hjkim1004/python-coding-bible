@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Heapq() {
       lede="«남은 것 중 가장 작은 것»을 계속 꺼내야 한다면 정렬을 반복하지 마세요. 힙은 그 질문 하나에 O(log N)으로 답합니다."
       tags={['2-2', '우선순위 큐', '다익스트라']}
     >
+      <Recall from="p1-list">
+        <p>
+          1-3에서 정렬이 <Term>O(N log N)</Term>이라는 것을 봤습니다. 한 번이라면 싸지만,
+          <strong>«남은 것 중 가장 작은 것»을 꺼낼 때마다 다시 정렬하면</strong> 그 값이
+          매번 청구됩니다.
+        </p>
+        <p>
+          힙은 그 질문 하나에만 답하는 자료구조입니다. 전체를 줄 세우지 않고
+          <strong>맨 앞 하나만</strong> 책임지므로 넣고 빼는 데 <Term>O(log N)</Term>입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="힙은 리스트다">
         <p>
           파이썬에는 힙 클래스가 없습니다. <strong>평범한 리스트를 힙의 규칙에 맞게 다루는

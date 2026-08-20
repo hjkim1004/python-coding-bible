@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Table from '../../components/Table';
@@ -13,6 +14,17 @@ export default function Itertools() {
       lede="완전 탐색은 «모든 경우»를 만드는 일입니다. 그 목록을 직접 재귀로 짜지 않아도 됩니다."
       tags={['2-3', '순열과 조합', '완전 탐색']}
     >
+      <Recall from="p1-loop">
+        <p>
+          1-6에서 반복문을 겹쳐 쓰는 법을 봤습니다. 두 겹은 견딜 만하지만,
+          <strong>몇 겹이 필요한지 문제를 풀기 전에는 모를 때</strong>가 있습니다.
+        </p>
+        <p>
+          «모든 경우»를 만드는 일은 직접 재귀로 짜지 않아도 됩니다.
+          여기서는 그 목록을 대신 만들어 주는 넷을 봅니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="넷 중 무엇을 쓸지 고르기">
         <Table
           head={['함수', '순서를 따지나', '같은 것을 다시 뽑나', '개수']}

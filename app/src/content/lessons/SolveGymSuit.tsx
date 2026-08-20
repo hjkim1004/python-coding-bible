@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -13,6 +14,17 @@ export default function SolveGymSuit() {
       tags={['4-1', '그리디', 'Lv.1']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42862' }}
     >
+      <Recall from={['p3-greedy', 'p1-dict']}>
+        <p>
+          3-1에서 그리디는 <strong>정당성이 절반</strong>이라고 했습니다.
+          1-5에서는 <Term>set(a) - set(b)</Term>로 겹치는 것을 걷어 내는 법을 봤습니다.
+        </p>
+        <p>
+          이 문제는 그 둘이 한 줄씩 필요합니다. 겹침을 걷어 내는 전처리 한 줄과,
+          «앞번호부터 빌린다»가 왜 손해가 아닌지를 말하는 한 문장.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           전체 학생 <Term>n</Term>명 중 체육복을 도난당한 학생 <Term>lost</Term>와

@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -9,10 +10,21 @@ export default function SolveImmigration() {
     <Lesson
       part="4부 · 기출 해설"
       title="입국심사"
-      lede="배열을 탐색하는 것이 아니라 «답의 범위»를 탐색합니다. 3-5의 파라메트릭 서치를 실제 문제 위에서 확인합니다."
+      lede="배열이 아니라 «답의 범위»를 탐색합니다. 사람이 10억 명이면 답을 만들지 말고 맞혀 봐야 합니다."
       tags={['4-8', '파라메트릭 서치', 'Lv.3']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/43238' }}
     >
+      <Recall from="p3-binary">
+        <p>
+          3-5에서 <strong>답의 범위를 이진 탐색하는</strong> 법을 봤습니다.
+          «되면 기록하고 한쪽으로, 안 되면 반대쪽으로»라는 세 줄짜리 틀이었습니다.
+        </p>
+        <p>
+          이 문제의 제한은 10억 명입니다. <strong>한 명씩 배치하는 시뮬레이션은
+          시작조차 할 수 없습니다.</strong> 그 틀을 실제 문제 위에서 세워 봅니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           기다리는 사람이 <Term>n</Term>명이고, 심사관마다 한 명을 처리하는 데 걸리는

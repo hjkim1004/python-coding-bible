@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -13,6 +14,18 @@ export default function SolveDeploy() {
       tags={['4-3', '큐', 'Lv.2']}
       source={{ label: '프로그래머스', href: 'https://school.programmers.co.kr/learn/courses/30/lessons/42586' }}
     >
+      <Recall from={['p2-collections', 'p1-number']}>
+        <p>
+          2-1에서 <Term>deque</Term>는 <strong>양 끝만 쓰는 자료구조</strong>라고 했습니다.
+          1-2에서는 <Term>//</Term>가 <strong>작은 쪽으로 내림</strong>이라는 것을 봤습니다.
+        </p>
+        <p>
+          «앞의 것이 끝나야 뒤의 것도 나간다»는 문장이 곧 선입선출이고,
+          «며칠 걸리나»는 언제나 <strong>올림</strong>입니다. 그 올림을
+          내림으로 만드는 방법이 여기서 나옵니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="문제">
         <p>
           기능마다 진도율 <Term>progresses</Term>와 하루 개발 속도 <Term>speeds</Term>가

@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function GraphTheory() {
       lede="«같은 무리인가»를 묻는 유니온 파인드, «순서를 세울 수 있는가»를 묻는 위상 정렬, «가장 싸게 잇는 법»을 묻는 최소 신장 트리."
       tags={['3-8', '유니온 파인드', '위상 정렬']}
     >
+      <Recall from={['p3-dfsbfs', 'p3-greedy']}>
+        <p>
+          3-3에서 그래프를 인접 리스트로 담고 탐색하는 뼈대를 익혔습니다.
+          3-1에서는 <strong>정렬해 놓고 앞에서부터 고르는</strong> 그리디를 봤습니다.
+        </p>
+        <p>
+          여기서는 탐색만으로는 비싼 질문들을 다룹니다 — «같은 무리인가»를 거의
+          <Term>O(1)</Term>에 답하는 유니온 파인드, 그 답을 이용해
+          <strong>간선을 싼 것부터 고르는</strong> 크루스칼(그리디입니다), 그리고 순서 세우기.
+        </p>
+      </Recall>
+
       <Section no={1} title="유니온 파인드 — 같은 무리인가">
         <p>
           «이 둘이 연결되어 있나»를 계속 물어야 할 때 매번 탐색하면 O(V+E)입니다.

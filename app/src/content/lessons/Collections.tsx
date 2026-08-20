@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,17 @@ export default function Collections() {
       lede="큐가 필요할 때, 셀 때, 없는 키를 물을 때. 직접 만들면 O(N)인 일을 O(1)로 바꿔 주는 세 가지."
       tags={['2-1', 'deque', 'Counter']}
     >
+      <Recall from="p1-list">
+        <p>
+          1-3에서 리스트의 <strong>앞에서 하는 일이 비싸다</strong>는 것을 봤습니다.
+          <Term>arr.pop(0)</Term>은 뒤의 원소를 전부 한 칸씩 당기므로 O(N)이었습니다.
+        </p>
+        <p>
+          여기서 그 문제를 <strong>도구로 해결합니다.</strong> 양 끝이 모두 싼 줄,
+          세는 일만 하는 계수기, 없는 키에 기본값을 주는 사전 — 세 가지입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="deque — 양쪽이 모두 싼 줄">
         <p>
           리스트의 <Term>pop(0)</Term>은 뒤의 원소를 전부 한 칸씩 당기므로 O(N)입니다.

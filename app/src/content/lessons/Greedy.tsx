@@ -1,5 +1,7 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
+import Term from '../../components/Term';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 
@@ -11,6 +13,18 @@ export default function Greedy() {
       lede="지금 가장 좋아 보이는 것을 고릅니다. 어려운 것은 고르는 일이 아니라, 그 선택이 손해가 아님을 말하는 일입니다."
       tags={['3-1', '정당성', '정렬 후 선택']}
     >
+      <Recall from="p1-function">
+        <p>
+          1-7에서 <Term>key</Term>로 정렬 기준을 세우는 법을 익혔습니다.
+          <Term>sorted(arr, key=lambda x: (-x[1], x[0]))</Term> 같은 한 줄입니다.
+        </p>
+        <p>
+          <strong>그 한 줄이 그리디의 절반입니다.</strong> 많은 그리디 문제가
+          «어떤 기준으로 줄을 세울 것인가»로 환원되기 때문입니다.
+          나머지 절반은 «그 기준이 왜 손해가 아닌가»를 말하는 일입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="그리디는 «증명»이 절반이다">
         <p>
           그리디는 전체를 보지 않고 <strong>지금 이 순간의 최선</strong>만 고릅니다.

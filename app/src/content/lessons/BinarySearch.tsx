@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function BinarySearch() {
       lede="배열에서 값을 찾는 기술이자, 「답 자체」를 찾는 기술입니다. 후자를 알아야 어려운 문제가 쉬워집니다."
       tags={['3-5', '파라메트릭 서치', 'O(log N)']}
     >
+      <Recall from="p2-bisect">
+        <p>
+          2-4에서 정렬된 배열에 «몇 개인가»를 <Term>O(log N)</Term>에 묻는 법을 봤습니다.
+          <Term>bisect_right(a, hi) - bisect_left(a, lo)</Term> 한 줄이었습니다.
+        </p>
+        <p>
+          여기서는 그 «절반 버리기»를 <strong>배열이 아니라 답의 범위에</strong> 적용합니다.
+          문제의 제한이 10억처럼 비현실적으로 크다면, 답을 만들지 말고
+          <strong>«이 값이면 되는가»를 물어 좁히라</strong>는 신호입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="범위를 반으로 줄인다">
         <p>
           정렬된 배열에서 매번 절반을 버리므로 <Term>N</Term>이 10억이어도

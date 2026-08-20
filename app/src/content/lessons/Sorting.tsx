@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Sorting() {
       lede="시험장에서 정렬 알고리즘을 직접 짤 일은 거의 없습니다. 대신 «무엇을 기준으로 세울 것인가»가 그대로 답이 됩니다."
       tags={['3-4', 'Timsort', '안정 정렬']}
     >
+      <Recall from="p1-function">
+        <p>
+          1-7에서 <Term>key</Term>와 <strong>안정 정렬</strong>을 봤습니다.
+          기준이 같은 원소는 원래 순서가 유지되므로, 두 번 나눠 정렬할 때는
+          <strong>덜 중요한 기준을 먼저</strong> 해야 했습니다.
+        </p>
+        <p>
+          여기서는 그 위에 «정렬 자체를 언제 직접 만드는가»와,
+          <strong>정렬해 두면 열리는 두 가지 기술</strong>(투 포인터·좌표 압축)을 얹습니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="파이썬 정렬을 믿는다">
         <p>
           <Term>sorted</Term>와 <Term>list.sort</Term>는 Timsort로 구현되어 있습니다.

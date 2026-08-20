@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Table from '../../components/Table';
@@ -13,6 +14,18 @@ export default function DfsBfs() {
       lede="그래프 문제의 8할은 이 두 템플릿을 어디에 무엇을 담느냐로 갈립니다. 뼈대를 손에 새기는 강입니다."
       tags={['3-3', '탐색', '최단 거리']}
     >
+      <Recall from={['p2-collections', 'p1-dict']}>
+        <p>
+          2-1에서 <Term>deque</Term>의 <Term>popleft</Term>가 <Term>O(1)</Term>이라는 것과,
+          <Term>defaultdict(list)</Term>로 그래프를 세 줄에 만드는 법을 봤습니다.
+          1-5에서는 «이미 본 것인가»를 <strong>집합이 한 번에 답한다</strong>고 했습니다.
+        </p>
+        <p>
+          이 강은 그 둘을 그대로 씁니다. <strong>BFS의 큐가 <Term>deque</Term>이고,
+          방문 표시가 그 «이미 본 것인가»</strong>입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="둘 중 무엇을 쓸까">
         <Table
           head={['', 'DFS', 'BFS']}

@@ -26,9 +26,13 @@ import sys
 import contextlib
 from pathlib import Path
 
-LESSONS = Path(__file__).resolve().parent.parent / 'src' / 'content' / 'lessons'
+CONTENT = Path(__file__).resolve().parent.parent / 'src' / 'content'
+LESSONS = CONTENT / 'lessons'
+CURRICULUM = CONTENT / 'curriculum.ts'
 
 CODE_BLOCK = re.compile(r'<Code[^>]*>\{`\n(.*?)`\}</Code>', re.S)
+RECALL_FROM = re.compile(r'<Recall\s+from=(?:"([^"]+)"|\{\[([^\]]+)\]\})')
+LESSON_ID = re.compile(r"\{\s*id:\s*'([^']+)'")
 EXPECT = re.compile(r'#\s*=>\s*(.*?)\s*$')
 
 # 채점 서버의 입력을 읽는 코드는 여기서 돌릴 수 없다
@@ -89,6 +93,25 @@ def check_block(name: str, source: str, namespace: dict) -> str:
     return 'checked'
 
 
+def check_recalls() -> list[tuple[str, str]]:
+    """되짚기가 가리키는 강이 실제로 있는지 본다.
+
+    없는 id 를 적으면 화면은 «다시 떠올리기» 라는 제목만 남고 링크가 사라진다.
+    오류도 나지 않으므로 아무도 모른 채 배포된다.
+    """
+    known = set(LESSON_ID.findall(CURRICULUM.read_text()))
+    problems = []
+
+    for path in sorted(LESSONS.glob('*.tsx')):
+        for single, many in RECALL_FROM.findall(path.read_text()):
+            ids = [single] if single else re.findall(r"'([^']+)'", many)
+            for lesson_id in ids:
+                if lesson_id not in known:
+                    problems.append((path.name, f'되짚기가 없는 강을 가리킨다: {lesson_id}'))
+
+    return problems
+
+
 def main() -> int:
     files = sorted(LESSONS.glob('*.tsx'))
     if not files:
@@ -112,6 +135,8 @@ def main() -> int:
 
     print(f'코드 블록 {total}개 — 답까지 대조 {tally["checked"]} · '
           f'실행만 {tally["ran"]} · 문법만 {tally["skip"]}(입력을 읽는 코드)')
+
+    failures.extend(check_recalls())
 
     if failures:
         print(f'\n{len(failures)}개가 틀렸다:\n')

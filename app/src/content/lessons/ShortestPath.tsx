@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Table from '../../components/Table';
@@ -13,6 +14,18 @@ export default function ShortestPath() {
       lede="이동 비용이 서로 다르면 BFS로는 부족합니다. 무엇을 묻느냐에 따라 셋 중 하나를 고르면 됩니다."
       tags={['3-7', '다익스트라', '플로이드']}
     >
+      <Recall from={['p2-heapq', 'p3-dfsbfs']}>
+        <p>
+          3-3에서 <strong>모든 이동의 비용이 같으면 BFS가 최단 거리</strong>라고 했습니다.
+          2-2에서는 «남은 것 중 가장 작은 것»을 <Term>O(log N)</Term>에 꺼내는 힙을 봤습니다.
+        </p>
+        <p>
+          비용이 서로 다르면 BFS로는 부족합니다. 그때
+          <strong>«아직 확정하지 않은 것 중 가장 가까운 정점»</strong>을 꺼내야 하는데,
+          그 일을 하는 것이 바로 그 힙입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="셋 중 무엇을 쓸까">
         <Table
           head={['상황', '알고리즘', '복잡도']}

@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Simulation() {
       lede="아이디어는 없습니다. 문제가 시킨 대로 정확히 옮기면 됩니다. 그래서 실수의 자리를 미리 없애는 것이 실력입니다."
       tags={['3-2', '방향 배열', '경계 검사']}
     >
+      <Recall from="p1-loop">
+        <p>
+          1-6에서 이중 루프를 빠져나오는 법과, 도는 중에 목록을 고치면
+          <strong>한 칸씩 건너뛴다</strong>는 것을 봤습니다.
+        </p>
+        <p>
+          구현 문제는 아이디어가 없는 대신 <strong>그런 실수의 자리가 전부 모여 있는</strong>
+          유형입니다. 여기서는 실수할 자리를 미리 없애는 방법을 봅니다 —
+          방향 배열, 경계 검사, 상태 묶기.
+        </p>
+      </Recall>
+
       <Section no={1} title="방향은 배열 두 개로">
         <p>
           상하좌우로 움직이는 코드를 <Term>if</Term> 네 개로 쓰면 네 번 실수할 수 있습니다.

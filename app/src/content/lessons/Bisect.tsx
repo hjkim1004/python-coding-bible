@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Bisect() {
       lede="정렬된 배열에서 «몇 개인가»를 묻는 질문. 직접 이진 탐색을 짜면 경계에서 틀리고, bisect 는 두 줄이면 끝납니다."
       tags={['2-4', '이진 탐색', 'O(log N)']}
     >
+      <Recall from="p1-list">
+        <p>
+          1-3의 표에서 <Term>x in arr</Term>과 <Term>arr.count(x)</Term>가
+          <strong>둘 다 O(N)</strong>이었습니다. 전부 훑어야 하기 때문입니다.
+        </p>
+        <p>
+          그런데 <strong>배열이 정렬되어 있다면</strong> 이야기가 달라집니다.
+          매번 절반을 버릴 수 있으므로 <Term>O(log N)</Term>이 됩니다.
+          여기서는 그 «절반 버리기»를 직접 짜지 않고 쓰는 법을 봅니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="두 함수의 차이">
         <p>
           둘 다 «정렬을 유지하면서 <Term>x</Term>를 넣을 자리»를 돌려줍니다. 차이는
