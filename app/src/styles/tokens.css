@@ -78,7 +78,9 @@
   --brand-gradient: linear-gradient(135deg, var(--primary), var(--primary-lit));
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--accent) 30%, transparent);
 
-  color-scheme: light dark;
+  /* 스크롤바·기본 폼도 화면과 같은 편에 서야 한다.
+     light dark 로 두면 화면만 갈아입고 스크롤바는 OS 설정을 따라간다. */
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -110,6 +112,8 @@
     --code-number: #FBBF24;
     --code-name: #8DB9FF;
     --code-builtin: #B79AFF;
+
+    color-scheme: dark;
   }
 }
 
@@ -141,6 +145,8 @@
   --code-number: #FBBF24;
   --code-name: #8DB9FF;
   --code-builtin: #B79AFF;
+
+  color-scheme: dark;
 }
 
 /* ── 바탕 ───────────────────────────────────────────────────── */
