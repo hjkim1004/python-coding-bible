@@ -50,8 +50,8 @@ def solution(n, computers):
     return count
 
 
-print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))   # 2
-print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))   # 1
+print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))   # => 2
+print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))   # => 1
 `}</Code>
 
         <p>
@@ -90,8 +90,8 @@ def solution(n, computers):
     return len({find(i) for i in range(n)})
 
 
-print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))   # 2
-print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))   # 1
+print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))   # => 2
+print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))   # => 1
 `}</Code>
 
         <Note tone="danger" title="마지막 줄에서 parent 를 그대로 세면 틀립니다">

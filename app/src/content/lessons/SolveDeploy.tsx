@@ -42,9 +42,10 @@ import math
 
 remain, speed = 70, 30
 
-print(math.ceil(remain / speed))       # 3  — 실수를 한 번 거친다
-print(-(-remain // speed))             # 3  — 정수만으로 올림
-print((remain + speed - 1) // speed)   # 3  — 같은 뜻, 더 흔한 표기
+# 셋 다 같은 답을 준다. 다만 첫 줄만 실수를 한 번 거친다.
+print(math.ceil(remain / speed))       # => 3
+print(-(-remain // speed))             # => 3
+print((remain + speed - 1) // speed)   # => 3
 `}</Code>
 
         <Note tone="warn" title="math.ceil 은 실수를 거칩니다">
@@ -78,8 +79,8 @@ def solution(progresses, speeds):
     return answer
 
 
-print(solution([93, 30, 55], [1, 30, 5]))               # [2, 1]
-print(solution([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]))   # [1, 3, 2]
+print(solution([93, 30, 55], [1, 30, 5]))                       # => [2, 1]
+print(solution([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]))   # => [1, 3, 2]
 `}</Code>
 
         <p>

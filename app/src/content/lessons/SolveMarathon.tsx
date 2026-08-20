@@ -70,11 +70,11 @@ def solution(participant, completion):
     return (Counter(participant) - Counter(completion)).most_common(1)[0][0]
 
 
-print(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']))              # leo
+print(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']))              # => leo
 print(solution(['marina', 'josipa', 'nikola', 'vinko', 'filipa'],
-               ['josipa', 'filipa', 'marina', 'nikola']))               # vinko
+               ['josipa', 'filipa', 'marina', 'nikola']))               # => vinko
 print(solution(['mislav', 'stanko', 'mislav', 'ana'],
-               ['stanko', 'ana', 'mislav']))                            # mislav
+               ['stanko', 'ana', 'mislav']))                            # => mislav
 `}</Code>
 
         <p>

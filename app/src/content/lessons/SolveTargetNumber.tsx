@@ -48,8 +48,8 @@ def solution(numbers, target):
     return dfs(0, 0)
 
 
-print(solution([1, 1, 1, 1, 1], 3))       # 5
-print(solution([4, 1, 2, 1], 4))          # 2
+print(solution([1, 1, 1, 1, 1], 3))       # => 5
+print(solution([4, 1, 2, 1], 4))          # => 2
 `}</Code>
 
         <Note tone="warn" title="멈추는 조건을 가장 먼저 씁니다">
@@ -108,8 +108,8 @@ def solution(numbers, target):
     return dfs(0, 0)
 
 
-print(solution([1, 1, 1, 1, 1], 3))       # 5
-print(solution([4, 1, 2, 1], 4))          # 2
+print(solution([1, 1, 1, 1, 1], 3))       # => 5
+print(solution([4, 1, 2, 1], 4))          # => 2
 `}</Code>
 
         <p>

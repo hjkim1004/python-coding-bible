@@ -68,7 +68,7 @@ def solution(n, times):
     return lo
 
 
-print(solution(6, [7, 10]))     # 28
+print(solution(6, [7, 10]))     # => 28
 `}</Code>
       </Section>
 
@@ -120,7 +120,7 @@ def solution(n, times):
     return answer
 
 
-print(solution(6, [7, 10]))     # 28
+print(solution(6, [7, 10]))     # => 28
 `}</Code>
       </Section>
 

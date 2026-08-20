@@ -58,7 +58,7 @@ def solution(m, n, puddles):
     return dp[n][m]
 
 
-print(solution(4, 3, [[2, 2]]))    # 4
+print(solution(4, 3, [[2, 2]]))    # => 4
 `}</Code>
 
         <Note tone="danger" title="puddles 는 (열, 행) 입니다">
@@ -113,7 +113,7 @@ def solution(m, n, puddles):
     return row[m]
 
 
-print(solution(4, 3, [[2, 2]]))    # 4
+print(solution(4, 3, [[2, 2]]))    # => 4
 `}</Code>
 
         <p>

@@ -1,5 +1,4 @@
-# GitHub Pages 배포 — main 에 올라올 때마다 굽고 내보낸다.
-# 이 워크플로는 python-codingtest 가 «자체 저장소의 루트» 일 때 동작한다.
+# main 에 올라올 때마다 책의 코드를 검사하고, 통과하면 굽고 내보낸다.
 name: Deploy to GitHub Pages
 
 on:
@@ -17,7 +16,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # 책의 파이썬이 먼저다 — 코드가 거짓말을 하면 배포할 이유가 없다
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm test
+        working-directory: app
+
   build:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
