@@ -1,45 +1,57 @@
-import type { ComponentType } from 'react';
+import { lazy, type ComponentType } from 'react';
 
-import Io from './lessons/Io';
-import Numbers from './lessons/Numbers';
-import Lists from './lessons/Lists';
-import Strings from './lessons/Strings';
-import DictSet from './lessons/DictSet';
-import Loops from './lessons/Loops';
-import Functions from './lessons/Functions';
+type Loader = () => Promise<{ default: ComponentType }>;
 
-import Collections from './lessons/Collections';
-import Heapq from './lessons/Heapq';
-import Itertools from './lessons/Itertools';
-import Bisect from './lessons/Bisect';
-import MathLib from './lessons/MathLib';
-import Functools from './lessons/Functools';
+/** 강 하나. 읽을 때 받아 오되, 다음 강을 미리 받아 둘 손잡이를 함께 남긴다. */
+export type LessonPage = ComponentType & { preload: Loader };
 
-import Greedy from './lessons/Greedy';
-import Simulation from './lessons/Simulation';
-import DfsBfs from './lessons/DfsBfs';
-import Sorting from './lessons/Sorting';
-import BinarySearch from './lessons/BinarySearch';
-import Dp from './lessons/Dp';
-import ShortestPath from './lessons/ShortestPath';
-import GraphTheory from './lessons/GraphTheory';
+/**
+ * 강은 읽을 때 받아 온다.
+ * 한 강을 여는 사람이 나머지 29강의 본문까지 내려받을 이유가 없다.
+ */
+function page(loader: Loader): LessonPage {
+  const Component = lazy(loader) as unknown as LessonPage;
+  Component.preload = loader;
+  return Component;
+}
 
-import SolveGymSuit from './lessons/SolveGymSuit';
-import SolveMarathon from './lessons/SolveMarathon';
-import SolveDeploy from './lessons/SolveDeploy';
-import SolveBigNumber from './lessons/SolveBigNumber';
-import SolveTargetNumber from './lessons/SolveTargetNumber';
-import SolveGameMap from './lessons/SolveGameMap';
-import SolveNetwork from './lessons/SolveNetwork';
-import SolveImmigration from './lessons/SolveImmigration';
-import SolveSchoolPath from './lessons/SolveSchoolPath';
+const Io = page(() => import('./lessons/Io'));
+const Numbers = page(() => import('./lessons/Numbers'));
+const Lists = page(() => import('./lessons/Lists'));
+const Strings = page(() => import('./lessons/Strings'));
+const DictSet = page(() => import('./lessons/DictSet'));
+const Loops = page(() => import('./lessons/Loops'));
+const Functions = page(() => import('./lessons/Functions'));
+const Collections = page(() => import('./lessons/Collections'));
+const Heapq = page(() => import('./lessons/Heapq'));
+const Itertools = page(() => import('./lessons/Itertools'));
+const Bisect = page(() => import('./lessons/Bisect'));
+const MathLib = page(() => import('./lessons/MathLib'));
+const Functools = page(() => import('./lessons/Functools'));
+const Greedy = page(() => import('./lessons/Greedy'));
+const Simulation = page(() => import('./lessons/Simulation'));
+const DfsBfs = page(() => import('./lessons/DfsBfs'));
+const Sorting = page(() => import('./lessons/Sorting'));
+const BinarySearch = page(() => import('./lessons/BinarySearch'));
+const Dp = page(() => import('./lessons/Dp'));
+const ShortestPath = page(() => import('./lessons/ShortestPath'));
+const GraphTheory = page(() => import('./lessons/GraphTheory'));
+const SolveGymSuit = page(() => import('./lessons/SolveGymSuit'));
+const SolveMarathon = page(() => import('./lessons/SolveMarathon'));
+const SolveDeploy = page(() => import('./lessons/SolveDeploy'));
+const SolveBigNumber = page(() => import('./lessons/SolveBigNumber'));
+const SolveTargetNumber = page(() => import('./lessons/SolveTargetNumber'));
+const SolveGameMap = page(() => import('./lessons/SolveGameMap'));
+const SolveNetwork = page(() => import('./lessons/SolveNetwork'));
+const SolveImmigration = page(() => import('./lessons/SolveImmigration'));
+const SolveSchoolPath = page(() => import('./lessons/SolveSchoolPath'));
 
 export interface LessonMeta {
   id: string;
   no: string;
   title: string;
   blurb: string;
-  page: ComponentType;
+  page: LessonPage;
 }
 
 export interface Part {

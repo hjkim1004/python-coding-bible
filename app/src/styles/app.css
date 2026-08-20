@@ -105,6 +105,18 @@
   padding: var(--s2h) var(--s1h) var(--s1);
 }
 
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 강 하나와 그 완독 표시가 한 줄에 선다 */
+.nav__row {
+  display: flex;
+  align-items: center;
+}
+
 .nav__item {
   width: 100%;
   display: flex;
@@ -210,6 +222,7 @@
 }
 
 .progress__fill {
+  width: var(--fill, 0%);
   height: 100%;
   border-radius: 999px;
   background: var(--brand-gradient);
@@ -781,6 +794,16 @@ a.card:hover {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-faint);
+}
+
+/* 늦게야 나타난다 — 빨리 온 강에서는 이 글자를 볼 일이 없어야 한다 */
+.loading {
+  padding: var(--s5) 0;
+  color: var(--text-faint);
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0;
+  animation: fade-in var(--motion-base) var(--ease-entering) 250ms forwards;
 }
 
 /* ── 움직임 ─────────────────────────────────────────────────── */

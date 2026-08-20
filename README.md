@@ -43,10 +43,15 @@ npm run dev --prefix app
 | 디자인 | Aurora Ledger — `src/styles/tokens.css`의 CSS 변수만 부른다. 값을 클래스에 직접 쓰지 않는다 |
 | 라우팅 | 해시 라우터 직접 구현 — 서버가 없는 GitHub Pages에서 새로고침해도 404가 나지 않는다 |
 | 하이라이트 | 파이썬 전용 토크나이저 직접 구현(`src/lib/highlight.ts`) — 색은 디자인 토큰이 정한다 |
-| 크기 | 약 250KB (gzip 92KB) |
+| 크기 | 첫 화면 gzip 53KB (강은 읽을 때 하나씩, 각 2~3KB) |
+| 검사 | `npm test` 책의 파이썬 · `npm run lint` ESLint |
 
 문법 강조 라이브러리 하나가 950KB였고 색은 그 라이브러리의 테마가 정했다.
 이 책에 실리는 코드는 파이썬 한 종류뿐이라, 필요한 만큼만 직접 나눴다.
+
+강은 읽을 때 받아 온다. 한 강을 여는 사람이 나머지 29강의 본문까지 내려받을
+이유가 없다. 다음 강은 화면을 다 그린 뒤 한가할 때 미리 받아 두므로,
+«다음 강» 을 눌렀을 때 기다리는 일은 없다.
 
 ## 구조
 
@@ -54,16 +59,19 @@ npm run dev --prefix app
 python-codingtest/
 ├── app/
 │   ├── index.html
+│   ├── scripts/check_book_code.py  책에 실린 파이썬을 검사한다
 │   └── src/
-│       ├── App.tsx                 껍데기 — 목차 · 진도 · 이동
-│       ├── components/             Lesson · Code · Note · Quiz · Table · Term
+│       ├── App.tsx                 상태와 조립만 (92줄)
+│       ├── components/
+│       │   ├── Sidebar · TopBar · Pager · Progress    껍데기
+│       │   └── Lesson · Code · Note · Quiz · Table · Term   글의 부품
 │       ├── content/
 │       │   ├── curriculum.ts       목차 데이터 (여기 한 곳만 고치면 강이 늘어난다)
-│       │   ├── Intro.tsx
-│       │   └── lessons/            30개 강
-│       ├── lib/                    해시 라우터 · 진도 · 테마 · 하이라이터
+│       │   ├── Intro.tsx · NotFound.tsx
+│       │   └── lessons/            30개 강 — 강마다 따로 구워져 읽을 때 받아 온다
+│       ├── lib/                    해시 라우터 · 진도 · 테마 · 탭 제목 · 하이라이터
 │       └── styles/                 tokens.css (Aurora Ledger) · app.css
-└── .github/workflows/deploy.yml    GitHub Pages 배포
+└── .github/workflows/deploy.yml    검사 → 빌드 → GitHub Pages
 ```
 
 ## 배포
