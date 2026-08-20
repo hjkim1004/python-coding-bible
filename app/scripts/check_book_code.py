@@ -33,6 +33,11 @@ CURRICULUM = CONTENT / 'curriculum.ts'
 CODE_BLOCK = re.compile(r'<Code[^>]*>\{`\n(.*?)`\}</Code>', re.S)
 RECALL_FROM = re.compile(r'<Recall\s+from=(?:"([^"]+)"|\{\[([^\]]+)\]\})')
 LESSON_ID = re.compile(r"\{\s*id:\s*'([^']+)'")
+LESSON_ROW = re.compile(r"\{ id: '([^']+)', no: '([^']+)', title: '([^']+)'[^}]*page: (\w+) \}")
+PAGE_FILE = re.compile(r"const (\w+) = page\(\(\) => import\('\./lessons/(\w+)'\)\);")
+TAG_NO = re.compile(r"tags=\{\['([^']+)'")
+# 한글이 바로 뒤에 붙는 «1-1에서» 를 놓치지 않도록 숫자와 붙임표만 배제한다
+LESSON_REF = re.compile(r'(?<![\d-])([0-4]-\d{1,2})(?![\d-])')
 EXPECT = re.compile(r'#\s*=>\s*(.*?)\s*$')
 
 # 채점 서버의 입력을 읽는 코드는 여기서 돌릴 수 없다
@@ -112,6 +117,35 @@ def check_recalls() -> list[tuple[str, str]]:
     return problems
 
 
+def check_numbering() -> list[tuple[str, str]]:
+    """화면에 찍히는 강 번호가 목차의 번호와 같은지, 본문이 없는 강을 가리키지 않는지 본다.
+
+    강을 사이에 끼워 넣으면 번호가 밀린다. 그때 «3-6에서 봤듯이» 가 조용히 거짓이 된다.
+    """
+    curriculum = CURRICULUM.read_text()
+    rows = LESSON_ROW.findall(curriculum)
+    files = dict(PAGE_FILE.findall(curriculum))
+    valid = {no for _, no, _, _ in rows}
+    problems = []
+
+    for _, no, title, component in rows:
+        path = LESSONS / f'{files[component]}.tsx'
+        source = path.read_text()
+
+        tag = TAG_NO.search(source)
+        if not tag:
+            problems.append((path.name, '강 번호 꼬리표가 없다'))
+        elif tag.group(1) != no:
+            problems.append((path.name, f'목차는 {no} 인데 화면에는 {tag.group(1)} 이라 적혀 있다'))
+
+        prose = CODE_BLOCK.sub('', source)
+        for ref in sorted(set(LESSON_REF.findall(prose))):
+            if ref not in valid:
+                problems.append((path.name, f'{no} {title} 이 없는 강 «{ref}» 를 가리킨다'))
+
+    return problems
+
+
 def main() -> int:
     files = sorted(LESSONS.glob('*.tsx'))
     if not files:
@@ -137,6 +171,7 @@ def main() -> int:
           f'실행만 {tally["ran"]} · 문법만 {tally["skip"]}(입력을 읽는 코드)')
 
     failures.extend(check_recalls())
+    failures.extend(check_numbering())
 
     if failures:
         print(f'\n{len(failures)}개가 틀렸다:\n')
