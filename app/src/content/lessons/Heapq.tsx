@@ -1,4 +1,5 @@
 import Code from '../../components/Code';
+import Figure from '../../components/Figure';
 import Lesson, { Section } from '../../components/Lesson';
 import Recall from '../../components/Recall';
 import Note from '../../components/Note';
@@ -47,6 +48,46 @@ arr = [5, 3, 8, 1]
 heapq.heapify(arr)           # 있는 리스트를 힙으로  O(N)
 print(heapq.heappop(arr))    # 1
 `}</Code>
+
+        <Figure
+          label="힙을 나무 모양으로 그린 그림과, 그것이 리스트에 어떤 순서로 담기는지의 대응"
+          viewBox="0 0 640 250"
+          caption="위에 있는 것이 아래보다 작다 — 이 규칙만 지킵니다. 형제끼리는 순서가 없어 리스트를 찍어 보면 뒤죽박죽입니다."
+        >
+          {/* 간선 */}
+          <path d="M300 54 L190 112 M300 54 L410 112 M190 132 L130 190 M190 132 L250 190" stroke="var(--divider)" strokeWidth="2" />
+
+          {[
+            { x: 300, y: 34, v: 1, root: true },
+            { x: 190, y: 112, v: 3 },
+            { x: 410, y: 112, v: 2 },
+            { x: 130, y: 190, v: 8 },
+            { x: 250, y: 190, v: 5 },
+          ].map((n) => (
+            <g key={n.v}>
+              <circle
+                cx={n.x} cy={n.y + 10} r="21"
+                fill={n.root ? 'var(--primary)' : 'var(--sunken)'}
+                stroke={n.root ? 'transparent' : 'var(--divider)'} strokeWidth="1.5"
+              />
+              <text
+                x={n.x} y={n.y + 15} textAnchor="middle" className="fig-mono"
+                fill={n.root ? 'var(--primary-ink)' : 'var(--text)'}
+              >
+                {n.v}
+              </text>
+            </g>
+          ))}
+          <text x="332" y="40" className="fig-accent">heap[0] — 늘 가장 작다</text>
+
+          <text x="440" y="182" className="fig-small">리스트에는 이 순서로</text>
+          {[1, 3, 2, 8, 5].map((v, i) => (
+            <g key={`a${i}`}>
+              <rect x={440 + i * 38} y="196" width="32" height="32" rx="8" fill="var(--sunken)" />
+              <text x={456 + i * 38} y="217" textAnchor="middle" className="fig-mono">{v}</text>
+            </g>
+          ))}
+        </Figure>
 
         <Note tone="warn" title="힙은 «정렬된 리스트»가 아닙니다">
           <p>

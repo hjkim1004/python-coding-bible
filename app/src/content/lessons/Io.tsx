@@ -60,7 +60,10 @@ input = sys.stdin.readline
       </Section>
 
       <Section no={2} title="읽는 다섯 가지 모양">
-        <p>입력의 생김새는 사실상 다섯 가지뿐입니다. 이 다섯 줄이면 대부분의 문제가 열립니다.</p>
+        <p>
+          입력의 생김새는 몇 가지로 정해져 있습니다. 아래 다섯 줄이면 대부분의 문제가
+          열리니, 외우기보다 <strong>필요할 때 여기로 돌아와 베껴 쓰세요.</strong>
+        </p>
 
         <Code label="입력 다섯 모양">{`
 import sys

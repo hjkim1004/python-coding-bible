@@ -1,4 +1,5 @@
 import Code from '../../components/Code';
+import Figure from '../../components/Figure';
 import Lesson, { Section } from '../../components/Lesson';
 import Recall from '../../components/Recall';
 import Note from '../../components/Note';
@@ -14,23 +15,79 @@ export default function Lists() {
       lede="리스트는 무엇이든 받아 줍니다. 그 친절함이 어디서 O(N)을 청구하는지 알아야 시간 초과를 피할 수 있습니다."
       tags={['1-3', '복잡도', '얕은 복사']}
     >
-      <Recall from="p0-container">
+      <Recall from={['p0-container', 'p0-complexity']}>
         <p>
           0-6에서 리스트를 만들고, <Term>append</Term>로 뒤에 붙이고,
           <Term>arr[0]</Term>으로 꺼냈습니다. 번호가 0부터라는 것과
           <Term>arr[-1]</Term>이 맨 뒤라는 것도 봤습니다.
         </p>
         <p>
+          0-9에서는 <Term>O(N)</Term>이 «한 번 훑는 것»이라고 했습니다.
           <strong>그 코드는 전부 맞습니다.</strong> 여기서는 그중 어떤 것이
-          겉보기와 달리 <strong>몰래 O(N)을 청구하는지</strong>를 봅니다 —
+          겉보기에는 한 줄이면서 <strong>속으로는 N번 도는지</strong>를 봅니다 —
           시간 초과의 가장 흔한 출처입니다.
         </p>
       </Recall>
 
       <Section no={1} title="연산마다 값이 다르다">
         <p>
-          리스트는 배열입니다. <strong>끝에서 하는 일은 싸고, 앞에서 하는 일은 비쌉니다.</strong>
-          앞에 넣거나 빼면 뒤의 원소를 전부 한 칸씩 밀어야 하기 때문입니다.
+          리스트는 <strong>배열</strong>입니다. 값들이 메모리에
+          <strong>한 줄로 나란히</strong> 놓여 있다는 뜻입니다. 그래서
+          «세 번째 것을 달라»는 즉시 답할 수 있습니다 — 시작 자리에서 세 칸만 가면
+          되니까요. 이것이 <Term>O(1)</Term>입니다.
+        </p>
+        <p>
+          문제는 <strong>중간이나 앞을 건드릴 때</strong>입니다. 나란히 놓여 있어야
+          하므로, 앞의 하나를 빼면 <strong>뒤의 것을 전부 한 칸씩 당겨야</strong> 합니다.
+          그 «전부»가 <Term>O(N)</Term>입니다.
+        </p>
+        <p>
+          한마디로 <strong>끝에서 하는 일은 싸고, 앞에서 하는 일은 비쌉니다.</strong>
+        </p>
+
+        <Figure
+          label="리스트에서 맨 앞을 빼면 뒤의 값들이 전부 한 칸씩 왼쪽으로 당겨지는 모습"
+          viewBox="0 0 640 210"
+          caption="맨 뒤를 빼면 아무도 움직이지 않지만, 맨 앞을 빼면 뒤의 전부가 한 칸씩 옮겨 갑니다."
+        >
+          <text x="0" y="20" className="fig-strong">arr.pop() — 맨 뒤에서</text>
+          {[10, 20, 30, 40].map((v, i) => (
+            <g key={`t${v}`}>
+              <rect
+                x={12 + i * 62} y="34" width="54" height="40" rx="9"
+                fill={i === 3 ? 'var(--sunken)' : 'var(--primary-soft)'}
+                stroke={i === 3 ? 'var(--danger)' : 'transparent'}
+                strokeWidth="1.5" strokeDasharray={i === 3 ? '4 4' : undefined}
+              />
+              <text x={39 + i * 62} y="59" textAnchor="middle" className="fig-mono">{v}</text>
+            </g>
+          ))}
+          <text x="272" y="59" className="fig-accent" fill="var(--success)">움직이는 것 없음 · O(1)</text>
+
+          <text x="0" y="122" className="fig-strong">arr.pop(0) — 맨 앞에서</text>
+          {[10, 20, 30, 40].map((v, i) => (
+            <g key={`h${v}`}>
+              <rect
+                x={12 + i * 62} y="136" width="54" height="40" rx="9"
+                fill={i === 0 ? 'var(--sunken)' : 'var(--primary-soft)'}
+                stroke={i === 0 ? 'var(--danger)' : 'transparent'}
+                strokeWidth="1.5" strokeDasharray={i === 0 ? '4 4' : undefined}
+              />
+              <text x={39 + i * 62} y="161" textAnchor="middle" className="fig-mono">{v}</text>
+              {i > 0 && (
+                <path
+                  d={`M${20 + i * 62} 190 l -34 0`}
+                  stroke="var(--danger)" strokeWidth="2" fill="none"
+                />
+              )}
+            </g>
+          ))}
+          <text x="272" y="161" className="fig-accent" fill="var(--danger)">뒤의 전부가 한 칸씩 · O(N)</text>
+        </Figure>
+
+        <p>
+          아래 표에서 <Term>O(1)</Term>은 «언제나 한 번», <Term>O(N)</Term>은
+          «들어 있는 만큼»이라고 읽으면 됩니다.
         </p>
 
         <Table

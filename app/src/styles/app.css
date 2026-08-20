@@ -509,6 +509,47 @@
   box-shadow: none;
 }
 
+/* ── 그림 ───────────────────────────────────────────────────── */
+
+.figure {
+  margin: var(--s3) 0;
+  padding: var(--s2h) var(--s2);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  /* 좁은 화면에서 그림을 통에 맞춰 줄이면 글자가 뭉개진다.
+     표·코드와 같은 규칙 — 제 안에서 가로로 스크롤하고 페이지는 밀리지 않는다. */
+  overflow-x: auto;
+}
+
+.figure__svg {
+  display: block;
+  width: 100%;
+  min-width: 34rem;
+  height: auto;
+  overflow: visible;
+}
+
+.figure__caption {
+  margin-top: var(--s1h);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+/* 그림 안에서 쓰는 글자 — 크기는 viewBox 단위라 px 로 둔다 */
+.figure__svg text {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text-sub);
+}
+.figure__svg .fig-small { font-size: 12px; fill: var(--text-faint); font-weight: 500; }
+.figure__svg .fig-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.figure__svg .fig-strong { fill: var(--text); font-weight: 700; }
+.figure__svg .fig-accent { fill: var(--accent); font-weight: 700; }
+
 /* ── 노트 ───────────────────────────────────────────────────── */
 
 .note {

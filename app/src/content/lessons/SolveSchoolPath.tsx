@@ -37,7 +37,7 @@ export default function SolveSchoolPath() {
         <Note tone="danger" title="완전 탐색이 불가능한 이유">
           <p>
             100 × 100 격자에서 오른쪽·아래로만 가는 경로의 수는
-            조합으로 <Term>200C100</Term>, 자릿수가 <strong>59자리</strong>입니다.
+            조합으로 <Term>200C100</Term> — 자릿수가 <strong>59자리</strong>인 수입니다.
             하나씩 세는 것은 물론 불가능하고,
             <strong>«나머지를 구하라»는 말 자체가 «수를 세지 말고 DP를 하라»는 신호</strong>입니다.
           </p>

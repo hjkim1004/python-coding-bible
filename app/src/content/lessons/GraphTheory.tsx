@@ -1,4 +1,5 @@
 import Code from '../../components/Code';
+import Figure from '../../components/Figure';
 import Lesson, { Section } from '../../components/Lesson';
 import Recall from '../../components/Recall';
 import Note from '../../components/Note';
@@ -52,6 +53,34 @@ union(parent, 1, 2)
 union(parent, 2, 3)
 print(find(parent, 1) == find(parent, 3))    # True
 `}</Code>
+
+        <Figure
+          label="유니온 파인드에서 경로 압축 전에는 사슬이 길게 늘어져 있고, 압축 후에는 모두 대표를 직접 가리키는 모습"
+          viewBox="0 0 640 210"
+          caption="find 는 대표를 찾아 올라가는 김에 부모를 대표로 바꿔 둡니다. 다음부터는 한 번에 닿습니다."
+        >
+          <text x="0" y="18" className="fig-strong">압축 전 — 매번 끝까지 올라간다</text>
+          {[1, 2, 3, 4].map((v, i) => (
+            <g key={`b${v}`}>
+              <circle cx={40 + i * 78} cy="58" r="20" fill={i === 0 ? 'var(--primary)' : 'var(--sunken)'} stroke="var(--divider)" strokeWidth={i === 0 ? 0 : 1.5} />
+              <text x={40 + i * 78} y="63" textAnchor="middle" className="fig-mono" fill={i === 0 ? 'var(--primary-ink)' : 'var(--text)'}>{v}</text>
+              {i > 0 && <path d={`M${40 + i * 78 - 22} 58 l -34 0`} stroke="var(--text-faint)" strokeWidth="2" />}
+            </g>
+          ))}
+          <text x="370" y="63" className="fig-small" fill="var(--danger)">4의 대표를 알려면 세 번 올라가야 한다</text>
+
+          <text x="0" y="128" className="fig-strong">압축 후 — 모두 대표를 직접 가리킨다</text>
+          <circle cx="40" cy="170" r="20" fill="var(--primary)" />
+          <text x="40" y="175" textAnchor="middle" className="fig-mono" fill="var(--primary-ink)">1</text>
+          {[2, 3, 4].map((v, i) => (
+            <g key={`a${v}`}>
+              <circle cx={140 + i * 78} cy="170" r="20" fill="var(--sunken)" stroke="var(--divider)" strokeWidth="1.5" />
+              <text x={140 + i * 78} y="175" textAnchor="middle" className="fig-mono">{v}</text>
+              <path d={`M${140 + i * 78 - 22} ${170 - i * 0} Q ${90 + i * 39} ${140 - i * 14} 62 168`} stroke="var(--accent)" strokeWidth="2" fill="none" />
+            </g>
+          ))}
+          <text x="370" y="175" className="fig-small" fill="var(--success)">언제나 한 번</text>
+        </Figure>
 
         <Note tone="success" title="경로 압축을 빼면 트리가 일자로 늘어납니다">
           <p>
