@@ -144,28 +144,36 @@
 
 .nav__label { flex: 1; min-width: 0; }
 
+/* 보이는 것은 작은 원이지만 눌리는 자리는 손끝만 하다 */
 .nav__done {
   flex-shrink: 0;
+  width: var(--tap);
+  height: var(--tap);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: transparent;
+}
+.nav__done::before {
+  content: '';
+  grid-area: 1 / 1;          /* 원과 체크를 같은 칸에 겹쳐 세운다 */
   width: 1.125rem;
   height: 1.125rem;
   border-radius: 50%;
   border: 1px solid var(--divider);
-  background: transparent;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  padding: 0;
-  color: transparent;
   transition: border-color var(--motion-fast) var(--ease-entering),
               background var(--motion-fast) var(--ease-entering);
 }
-.nav__done:hover { border-color: var(--accent); }
-.nav__done[aria-pressed='true'] {
+.nav__done:hover::before { border-color: var(--accent); }
+.nav__done[aria-pressed='true']::before {
   background: var(--success);
   border-color: var(--success);
-  color: var(--surface);
 }
-.nav__done svg { width: 0.75rem; height: 0.75rem; }
+.nav__done[aria-pressed='true'] { color: var(--surface); }
+.nav__done svg { grid-area: 1 / 1; width: 0.75rem; height: 0.75rem; }
 
 /* ── 진도 ───────────────────────────────────────────────────── */
 
@@ -243,8 +251,8 @@
 
 .icon-btn {
   flex-shrink: 0;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: var(--tap);
+  height: var(--tap);
   display: grid;
   place-items: center;
   border: 0;
@@ -425,6 +433,10 @@
               background var(--motion-fast) var(--ease-entering);
 }
 .code__copy:hover { color: var(--text); background: var(--surface); }
+
+@media (pointer: coarse) {
+  .code__copy { min-height: var(--tap); padding-inline: var(--s1h); }
+}
 .code__copy[data-done='true'] { color: var(--success); }
 .code__copy svg { width: 0.875rem; height: 0.875rem; }
 

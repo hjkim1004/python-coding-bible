@@ -68,6 +68,9 @@
   --code-name: #2763C4;
   --code-builtin: #7040D9;
 
+  /* 손끝 — 8pt 격자 밖의 값이지만 사람 손가락의 치수다(44px). 누르는 것의 최소 크기 */
+  --tap: 2.75rem;
+
   /* 레이아웃 */
   --sidebar-w: 19rem;
   --reading-w: 46rem;
