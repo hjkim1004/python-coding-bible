@@ -10,6 +10,9 @@
   2. 스스로 도는 블록이 예외 없이 끝나는가.
   3. `# =>` 로 답을 적어 둔 줄이 실제로 그 값을 내놓는가.
 
+`# =>` 뒤에는 답만 적는다. 답 뒤에 **빈칸 두 칸 이상**을 두면 그 뒤는 사람에게
+하는 말로 보고 대조에서 뺀다 — `# => 90    첫 번째는 0번이다` 처럼.
+
 블록은 한 강 안에서 «읽는 순서대로, 같은 이름 공간»에서 돈다 — 앞 블록에서
 정의한 함수를 뒷 블록이 쓰는 것은 독자가 실제로 읽는 방식 그대로다.
 표준 입력을 읽는 블록은 시험장의 것이므로 실행하지 않고 문법만 본다.
@@ -42,11 +45,12 @@ def unescape(source: str) -> str:
 
 
 def expectations(source: str) -> list[str]:
+    """`# =>` 로 적어 둔 답들. 빈칸 두 칸 뒤는 사람에게 하는 말이므로 뗀다."""
     found = []
     for line in source.split('\n'):
         m = EXPECT.search(line)
         if m:
-            found.append(m.group(1))
+            found.append(re.split(r'\s{2,}', m.group(1), maxsplit=1)[0].strip())
     return found
 
 

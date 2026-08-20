@@ -746,13 +746,45 @@
 }
 .cta:hover { text-decoration: none; transform: translateY(-0.125rem); }
 
+.hero__lede + .hero__lede { margin-top: var(--s2); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1h);
+  align-items: center;
+}
+
+/* 두 번째 길 — 화려한 면은 한 화면에 하나여야 하므로 이쪽은 조용히 선다 */
+.cta--quiet {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-card);
+}
+
 .cards {
   display: grid;
   gap: var(--s2);
   margin-top: var(--s3);
 }
 @media (min-width: 44em) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .hero__lede + .hero__lede { margin-top: var(--s2); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1h);
+  align-items: center;
+}
+
+/* 두 번째 길 — 화려한 면은 한 화면에 하나여야 하므로 이쪽은 조용히 선다 */
+.cta--quiet {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-card);
+}
+
+.cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 .card {

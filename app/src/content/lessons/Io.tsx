@@ -9,14 +9,21 @@ export default function Io() {
     <Lesson
       part="1부 · 통과하는 문법"
       title="입력과 출력"
-      lede="알고리즘이 맞았는데도 시간 초과가 나는 첫 번째 이유는 대개 입출력입니다. 여기서 새는 시간을 먼저 막습니다."
+      lede="0부에서 배운 input()을 시험장의 것으로 바꿉니다. 알고리즘이 맞았는데도 시간 초과가 나는 첫 번째 이유가 대개 여기입니다."
       tags={['1-1', 'sys.stdin', '시간 초과']}
     >
-      <Section no={1} title="input() 이 느린 이유">
+      <Section no={1} title="쓰던 input() 을 그대로 두면">
         <p>
-          파이썬의 <Term>input()</Term>은 한 줄을 읽을 때마다 프롬프트를 확인하고, 줄 끝의
-          개행을 떼고, 인코딩을 다시 맞춥니다. 한두 줄이라면 아무 문제가 없습니다. 그러나
-          10만 줄을 읽는 문제에서는 이 잔일이 쌓여 <strong>알고리즘보다 입력이 더 오래</strong> 걸립니다.
+          0-3에서 <Term>input()</Term>으로 한 줄을 읽고 <Term>int()</Term>로 바꾸는 법을
+          익혔습니다. 그 코드는 <strong>맞습니다.</strong> 한두 줄을 읽는 문제라면
+          이 강을 읽지 않아도 통과합니다.
+        </p>
+        <p>
+          문제는 줄이 많아질 때입니다. <Term>input()</Term>은 한 줄을 읽을 때마다
+          프롬프트를 확인하고, 줄 끝의 개행을 떼고, 인코딩을 다시 맞춥니다.
+          10만 줄을 읽는 문제에서는 이 잔일이 쌓여
+          <strong>알고리즘보다 입력이 더 오래</strong> 걸립니다. 답은 맞는데
+          시간 초과로 떨어지는, 가장 억울한 실패입니다.
         </p>
         <p>
           <Term>sys.stdin.readline</Term>은 그 잔일을 하지 않습니다. 대신 개행 문자를
@@ -29,8 +36,10 @@ input = sys.stdin.readline
 `}</Code>
 
         <p>
-          이름을 <Term>input</Term>으로 덮어쓰면 이후 코드는 평소처럼 <Term>input()</Term>을
-          부르면서 속도만 가져갑니다. 손에 익은 코드를 바꾸지 않아도 되는 것이 이 두 줄의 값입니다.
+          이름을 <Term>input</Term>으로 덮어쓰면 <strong>0부에서 익힌 코드를 한 글자도
+          바꾸지 않아도 됩니다.</strong> <Term>int(input())</Term>도,
+          <Term>map(int, input().split())</Term>도 그대로 쓰면서 속도만 가져갑니다.
+          손에 익은 것을 버리지 않아도 되는 것이 이 두 줄의 값입니다.
         </p>
       </Section>
 

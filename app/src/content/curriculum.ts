@@ -15,6 +15,14 @@ function page(loader: Loader): LessonPage {
   return Component;
 }
 
+const FirstProgram = page(() => import('./lessons/FirstProgram'));
+const Variables = page(() => import('./lessons/Variables'));
+const ReadingInput = page(() => import('./lessons/ReadingInput'));
+const Conditions = page(() => import('./lessons/Conditions'));
+const Repetition = page(() => import('./lessons/Repetition'));
+const Containers = page(() => import('./lessons/Containers'));
+const MakingFunctions = page(() => import('./lessons/MakingFunctions'));
+
 const Io = page(() => import('./lessons/Io'));
 const Numbers = page(() => import('./lessons/Numbers'));
 const Lists = page(() => import('./lessons/Lists'));
@@ -62,6 +70,20 @@ export interface Part {
 }
 
 export const PARTS: Part[] = [
+  {
+    id: 'part0',
+    title: '0부 · 파이썬 첫걸음',
+    blurb: '파이썬이 처음이라면 여기서 시작합니다. 1부를 읽는 데 필요한 만큼만.',
+    lessons: [
+      { id: 'p0-first', no: '0-1', title: '첫 프로그램', blurb: 'print와 들여쓰기', page: FirstProgram },
+      { id: 'p0-variable', no: '0-2', title: '변수와 자료형', blurb: "3과 '3'은 다르다", page: Variables },
+      { id: 'p0-input', no: '0-3', title: '입력받기', blurb: 'input은 언제나 글자다', page: ReadingInput },
+      { id: 'p0-if', no: '0-4', title: '조건', blurb: '갈림길에서 고르기', page: Conditions },
+      { id: 'p0-loop', no: '0-5', title: '반복', blurb: 'for와 while', page: Repetition },
+      { id: 'p0-container', no: '0-6', title: '값을 담아 두기', blurb: '리스트·딕셔너리·튜플', page: Containers },
+      { id: 'p0-function', no: '0-7', title: '함수와 가져오기', blurb: 'def와 import', page: MakingFunctions },
+    ],
+  },
   {
     id: 'part1',
     title: '1부 · 통과하는 문법',
