@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Table from '../../components/Table';
@@ -13,6 +14,18 @@ export default function Numbers() {
       lede="파이썬의 정수는 넘치지 않습니다. 대신 나눗셈이 다른 언어와 다르게 굴러가고, 실수는 조용히 어긋납니다."
       tags={['1-2', '//와 %', '부동소수점']}
     >
+      <Recall from="p0-variable">
+        <p>
+          0-2에서 <Term>int</Term>와 <Term>float</Term>를 보고, <Term>int(3.9)</Term>가
+          반올림이 아니라 <strong>버림</strong>이라는 것도 확인했습니다.
+        </p>
+        <p>
+          여기서는 그 «버림»이 <strong>음수에서는 어느 쪽으로 향하는지</strong>, 그리고
+          <strong>실수를 왜 <Term>==</Term>로 비교하면 안 되는지</strong>를 봅니다.
+          둘 다 답이 조용히 하나씩 어긋나는 자리입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="정수는 넘치지 않는다">
         <p>
           C나 자바에서 <Term>int</Term>는 21억을 넘으면 무너집니다. 파이썬의 정수는 메모리가
@@ -34,7 +47,11 @@ for i in range(1, 100_001):
       </Section>
 
       <Section no={2} title="나눗셈 네 가지">
-        <p>결과가 정수인지 실수인지, 그리고 음수에서 어디로 버리는지가 전부 다릅니다.</p>
+        <p>
+          0-1의 첫 코드에서 <Term>7 // 2</Term>가 3이었던 것을 기억하실 겁니다.
+          나눗셈은 그것 하나가 아니라 <strong>넷</strong>이고, 결과가 정수인지 실수인지
+          그리고 <strong>음수에서 어디로 버리는지</strong>가 전부 다릅니다.
+        </p>
 
         <Table
           head={['연산', '뜻', '7과 2', '-7과 2']}

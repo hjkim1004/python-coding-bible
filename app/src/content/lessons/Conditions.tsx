@@ -115,6 +115,14 @@ print(bigger, max(3, 5))  # => 5 5
 `}</Code>
       </Section>
 
+      <Note tone="success" title="이 강이 이어지는 곳">
+        <p>
+          조건과 반복은 <strong>1-6</strong>에서 다시 만납니다. 거기서는 문법이 아니라
+          <strong>실전에서 걸려 넘어지는 자리</strong>를 봅니다 — 이중 루프를 한 번에
+          빠져나오는 법과, 반복 중에 목록을 고치면 왜 하나씩 건너뛰는지.
+        </p>
+      </Note>
+
       <Quiz
         question="if score = 90: 이라고 썼습니다. 어떻게 될까요?"
         choices={[

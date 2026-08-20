@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,20 @@ export default function DictSet() {
       lede="«이미 나온 값인가»를 묻는 순간 리스트를 버리세요. 같은 질문에 리스트는 N번, 집합은 한 번에 답합니다."
       tags={['1-5', '해시 O(1)', '중복 제거']}
     >
+      <Recall from="p0-container">
+        <p>
+          0-6에서 딕셔너리로 <strong>이름표를 붙여</strong> 담았습니다.
+          <Term>score['국어']</Term>로 꺼내고, 없는 이름표를 꺼내면
+          <Term>KeyError</Term>라 <Term>.get()</Term>이나 <Term>in</Term>이
+          필요하다는 것까지 봤습니다.
+        </p>
+        <p>
+          여기서는 <strong>왜 그것이 빠른지</strong>와, 값 없이 «있다/없다»만 담는
+          사촌인 <strong>집합</strong>을 봅니다. «이미 나온 값인가»를 묻는 순간
+          리스트를 버려야 하는 이유가 여기 있습니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="집합이 사는 것">
         <p>
           집합과 딕셔너리는 해시로 자리를 계산합니다. 값이 몇 개든
@@ -71,6 +86,11 @@ empty = set()
       </Section>
 
       <Section no={3} title="딕셔너리로 세고 묶기">
+        <p>
+          0-6에서 본 <Term>.get(이름, 기본값)</Term>이 여기서 값을 합니다 —
+          «처음 보는 이름이면 0부터»를 한 줄로 만들어 주기 때문입니다.
+        </p>
+
         <Code label="세는 세 가지 방법">{`
 words = ['a', 'b', 'a', 'c', 'a']
 

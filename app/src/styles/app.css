@@ -471,6 +471,44 @@
 .tok-builtin { color: var(--code-builtin); }
 .tok-name    { color: var(--code-name); }
 
+/* ── 되짚기 ─────────────────────────────────────────────────── */
+
+/* 카드가 아니라 «잠깐 숨을 고르는 자리» 다 — 떠 있지 않으므로 그늘도 없다 */
+.recall {
+  margin: var(--s3) 0 var(--s4);
+  padding: var(--s2) var(--s2h);
+  border-radius: var(--radius-lg);
+  background: var(--sunken);
+}
+
+.recall__kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: var(--s1);
+}
+.recall__kicker a {
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.recall__body {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-sub);
+}
+.recall__body > * + * { margin-top: var(--s1h); }
+.recall__body strong { color: var(--text); }
+
+/* 되짚는 자리의 코드는 «작게 한 번 더 보여 주는» 것이라 그늘을 덜어 낸다 */
+.recall .code {
+  margin: var(--s1h) 0 0;
+  box-shadow: none;
+}
+
 /* ── 노트 ───────────────────────────────────────────────────── */
 
 .note {

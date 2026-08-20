@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,19 @@ export default function Strings() {
       lede="문자열은 고칠 수 없습니다. 고치는 것처럼 보이는 코드는 사실 매번 새로 만들고 있고, 그것이 시간 초과가 됩니다."
       tags={['1-4', '불변', 'join']}
     >
+      <Recall from="p0-variable">
+        <p>
+          0-2에서 글자끼리의 <Term>+</Term>는 덧셈이 아니라
+          <strong>이어 붙이기</strong>라는 것을 봤습니다 —
+          <Term>'7' + '1'</Term>은 <Term>'71'</Term>이었습니다.
+        </p>
+        <p>
+          여기서는 그 이어 붙이기가 <strong>10만 번 반복될 때</strong> 무슨 일이
+          벌어지는지를 봅니다. 한 번은 아무 일도 아니지만, 쌓이면 알고리즘보다
+          오래 걸립니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="+= 로 문자열을 쌓지 않는다">
         <p>
           파이썬 문자열은 <strong>불변</strong>입니다. <Term>s += 'a'</Term>는 기존 문자열을
@@ -43,6 +57,12 @@ s = ''.join(parts)
       </Section>
 
       <Section no={2} title="자르고 찾고 바꾸기">
+        <p>
+          <Term>split()</Term>은 0-3에서 입력을 자를 때 이미 썼습니다.
+          여기서는 그 <Term>split</Term>이 <strong>인자를 주고 안 주고에 따라
+          다르게 동작한다</strong>는 것까지 봅니다.
+        </p>
+
         <Code label="시험장에서 쓰는 것만">{`
 s = '  Hello, World  '
 

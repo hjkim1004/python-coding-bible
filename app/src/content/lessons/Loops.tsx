@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,20 @@ export default function Loops() {
       lede="반복문은 쉽습니다. 어려운 것은 이중 루프를 한 번에 빠져나오는 일과, 도는 도중에 목록을 고치는 일입니다."
       tags={['1-6', 'enumerate', '이중 루프 탈출']}
     >
+      <Recall from="p0-loop">
+        <p>
+          0-5에서 <Term>for</Term>와 <Term>range</Term>, <Term>while</Term>,
+          <Term>break</Term>와 <Term>continue</Term>를 익혔습니다.
+          <Term>range(5)</Term>가 <strong>0부터 4까지</strong>라는 것도요.
+        </p>
+        <p>
+          여기서는 그 도구들이 <strong>실전에서 걸려 넘어지는 세 자리</strong>를 봅니다 —
+          이중 루프를 한 번에 빠져나오기, 도는 중에 목록을 고치는 사고, 그리고
+          컴프리헨션. 0-5의 <Term>range</Term>도 한 번 더 짚습니다 —
+          <strong>자주 틀리는 것은 여러 번 볼 값이 있습니다.</strong>
+        </p>
+      </Recall>
+
       <Section no={1} title="range 를 정확히 읽기">
         <Code label="세 가지 모양">{`
 for i in range(5):        # 0 1 2 3 4      — 끝은 포함하지 않는다
@@ -28,7 +43,8 @@ for _ in range(int(input())):
 
         <p>
           값과 인덱스가 함께 필요하면 <Term>range(len(arr))</Term> 대신
-          <Term>enumerate</Term>를 쓰세요. 인덱스를 잘못 세는 실수가 통째로 사라집니다.
+          0-5에서 잠깐 본 <Term>enumerate</Term>를 쓰세요.
+          인덱스를 잘못 세는 실수가 통째로 사라집니다.
         </p>
 
         <Code label="enumerate 와 zip">{`

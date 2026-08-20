@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Table from '../../components/Table';
@@ -13,6 +14,19 @@ export default function Lists() {
       lede="리스트는 무엇이든 받아 줍니다. 그 친절함이 어디서 O(N)을 청구하는지 알아야 시간 초과를 피할 수 있습니다."
       tags={['1-3', '복잡도', '얕은 복사']}
     >
+      <Recall from="p0-container">
+        <p>
+          0-6에서 리스트를 만들고, <Term>append</Term>로 뒤에 붙이고,
+          <Term>arr[0]</Term>으로 꺼냈습니다. 번호가 0부터라는 것과
+          <Term>arr[-1]</Term>이 맨 뒤라는 것도 봤습니다.
+        </p>
+        <p>
+          <strong>그 코드는 전부 맞습니다.</strong> 여기서는 그중 어떤 것이
+          겉보기와 달리 <strong>몰래 O(N)을 청구하는지</strong>를 봅니다 —
+          시간 초과의 가장 흔한 출처입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="연산마다 값이 다르다">
         <p>
           리스트는 배열입니다. <strong>끝에서 하는 일은 싸고, 앞에서 하는 일은 비쌉니다.</strong>

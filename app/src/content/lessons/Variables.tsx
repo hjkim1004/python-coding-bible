@@ -110,6 +110,14 @@ print(f'{score} + 10 = {score + 10}')       # => 90 + 10 = 100
         </Note>
       </Section>
 
+      <Note tone="success" title="이 강이 이어지는 곳">
+        <p>
+          여기서 본 <strong>수와 글자의 구분</strong>은 두 곳에서 다시 만납니다.
+          <strong>1-2</strong>에서는 그 «수»가 나눗셈과 실수 오차에서 어떻게 어긋나는지를,
+          <strong>1-4</strong>에서는 그 «이어 붙이기»가 반복될 때 왜 시간을 잡아먹는지를 봅니다.
+        </p>
+      </Note>
+
       <Quiz
         question="'7' + 1 을 실행하면 어떻게 될까요?"
         choices={[

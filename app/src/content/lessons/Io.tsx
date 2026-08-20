@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,11 +13,26 @@ export default function Io() {
       lede="0부에서 배운 input()을 시험장의 것으로 바꿉니다. 알고리즘이 맞았는데도 시간 초과가 나는 첫 번째 이유가 대개 여기입니다."
       tags={['1-1', 'sys.stdin', '시간 초과']}
     >
+      <Recall from="p0-input">
+        <p>
+          0-3에서 <Term>input()</Term>으로 한 줄을 읽고 그 자리에서 수로 바꾸는 법을
+          익혔습니다. <strong>읽어 온 것은 언제나 글자</strong>였고, 그래서
+          <Term>int()</Term>를 씌워야 했습니다.
+        </p>
+        <Code label="0-3에서 손에 익힌 두 줄">{`
+n = int(input())                      # 한 줄에 수 하나
+a, b = map(int, input().split())      # 한 줄에 수 여럿
+`}</Code>
+        <p>
+          여기서는 이 두 줄을 <strong>시험장의 것으로</strong> 바꿉니다. 미리 말해 두면,
+          바꾼 뒤에도 <strong>위 두 줄은 그대로 씁니다.</strong>
+        </p>
+      </Recall>
+
       <Section no={1} title="쓰던 input() 을 그대로 두면">
         <p>
-          0-3에서 <Term>input()</Term>으로 한 줄을 읽고 <Term>int()</Term>로 바꾸는 법을
-          익혔습니다. 그 코드는 <strong>맞습니다.</strong> 한두 줄을 읽는 문제라면
-          이 강을 읽지 않아도 통과합니다.
+          먼저 분명히 해 둡니다 — <strong>0-3의 코드는 맞습니다.</strong> 한두 줄을
+          읽는 문제라면 이 강을 읽지 않아도 통과합니다.
         </p>
         <p>
           문제는 줄이 많아질 때입니다. <Term>input()</Term>은 한 줄을 읽을 때마다

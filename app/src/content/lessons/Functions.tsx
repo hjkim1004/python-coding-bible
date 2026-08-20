@@ -1,5 +1,6 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
+import Recall from '../../components/Recall';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -12,6 +13,18 @@ export default function Functions() {
       lede="코딩테스트에서 lambda 를 쓰는 자리는 사실상 하나입니다 — 정렬의 기준을 세울 때. 그 하나를 확실히 익힙니다."
       tags={['1-7', 'sort key', '가변 인자']}
     >
+      <Recall from="p0-function">
+        <p>
+          0-7에서 <Term>def</Term>로 함수를 만들고 <Term>return</Term>으로 값을
+          돌려줬습니다. <strong>찍는 것과 돌려주는 것은 다르다</strong>는 것도 봤습니다.
+        </p>
+        <p>
+          여기서는 <strong>이름 없는 한 줄 함수</strong>(<Term>lambda</Term>)와,
+          그것을 <strong>정렬의 기준</strong>으로 세우는 법을 봅니다. 코딩테스트에서
+          <Term>lambda</Term>를 쓰는 자리는 사실상 이 하나입니다.
+        </p>
+      </Recall>
+
       <Section no={1} title="정렬의 기준은 key 가 정한다">
         <p>
           <Term>sort</Term>와 <Term>sorted</Term>는 <Term>key</Term>에 준 함수의
@@ -28,8 +41,9 @@ print(sorted(words, key=lambda w: w[-1])) # 마지막 글자순
 `}</Code>
 
         <p>
-          기준이 둘 이상이면 <strong>튜플을 돌려주면 됩니다.</strong> 앞의 값이 같을 때만
-          뒤의 값을 봅니다.
+          기준이 둘 이상이면 <strong>튜플을 돌려주면 됩니다.</strong> 0-6에서 «한 몸인 값»을
+          담는다고 했던 그 튜플입니다. 튜플은 <strong>앞에서부터 차례로 비교</strong>하므로,
+          앞의 값이 같을 때만 뒤의 값을 봅니다.
         </p>
 
         <Code label="여러 기준 — 코테에서 가장 많이 쓰는 한 줄">{`
