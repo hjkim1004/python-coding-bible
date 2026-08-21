@@ -1,6 +1,7 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
 import Recall from '../../components/Recall';
+import Table from '../../components/Table';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -139,6 +140,49 @@ print(clean == clean[::-1])    # True
 # 가장 흔한 실수: reversed() 는 문자열이 아니라 반복자를 준다
 print(''.join(reversed(s)))    # 'level'
 `}</Code>
+      </Section>
+
+      <Section no={5} title="문자열 메서드 한눈에">
+        <p>
+          문자열은 <strong>불변</strong>이므로 아래 메서드는 하나도 원본을 고치지 않습니다.
+          전부 <strong>새 문자열이나 새 값을 돌려줍니다</strong> —
+          그래서 <Term>s.strip()</Term>만 쓰고 <Term>s</Term>를 다시 보면 그대로입니다.
+        </p>
+
+        <Table
+          head={['메서드', '하는 일', '돌려주는 값']}
+          rows={[
+            ["s.strip() · lstrip() · rstrip()", '양끝 · 왼쪽 · 오른쪽 공백 제거', '새 문자열'],
+            ["s.split() · split(',')", '공백 기준 · 구분자 기준으로 자른다', '리스트'],
+            ["'-'.join(arr)", '사이에 끼워 이어 붙인다', '새 문자열'],
+            ["s.replace(a, b)", 'a를 b로 모두 바꾼다', '새 문자열'],
+            ["s.find(x)", 'x의 첫 자리', '인덱스 (없으면 -1)'],
+            ["s.index(x)", 'x의 첫 자리', '인덱스 (없으면 오류)'],
+            ["s.count(x)", 'x가 몇 번 나오나', '개수'],
+            ["s.startswith(x) · endswith(x)", '그것으로 시작·끝나나', 'True / False'],
+            ["s.upper() · lower()", '대문자 · 소문자로', '새 문자열'],
+            ["s.zfill(n) · rjust(n) · ljust(n)", '길이 n에 맞춰 채운다', '새 문자열'],
+          ]}
+        />
+
+        <Table
+          head={['판별', '언제 참인가', '메모']}
+          rows={[
+            ['s.isdigit()', '전부 숫자', "'12'는 참, '1.2'는 거짓"],
+            ['s.isalpha()', '전부 글자', '한글도 참'],
+            ['s.isalnum()', '전부 글자 또는 숫자', '공백이 있으면 거짓'],
+            ['s.isupper() · islower()', '전부 대문자 · 소문자', '숫자만 있으면 거짓'],
+            ['s.isspace()', '전부 공백', '빈 문자열은 거짓'],
+          ]}
+        />
+
+        <Note tone="warn" title="빈 문자열에서는 대체로 거짓입니다">
+          <p>
+            <Term>''.isdigit()</Term>은 <Term>False</Term>입니다.
+            입력을 검사하는 코드에서 <strong>«비었을 때»를 따로 처리</strong>하지 않으면
+            엉뚱한 갈래로 빠집니다.
+          </p>
+        </Note>
       </Section>
 
       <Quiz

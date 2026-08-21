@@ -210,6 +210,61 @@ for a, b in zip(arr, arr[1:]):
         </Note>
       </Section>
 
+      <Section no={5} title="리스트 메서드 한눈에">
+        <p>
+          시험장에서 쓰는 것만 모았습니다. <strong>«돌려주는 값» 칸을 특히 보세요</strong> —
+          제자리에서 고치는 메서드는 <Term>None</Term>을 돌려주므로, 그 결과를 변수에 담으면
+          리스트를 통째로 잃습니다.
+        </p>
+
+        <Table
+          head={['메서드', '하는 일', '돌려주는 값', '복잡도']}
+          rows={[
+            ['arr.append(x)', '뒤에 하나 붙인다', 'None', 'O(1)'],
+            ['arr.extend(other)', '뒤에 여러 개 붙인다', 'None', 'O(k)'],
+            ['arr.insert(i, x)', 'i번째 자리에 끼워 넣는다', 'None', 'O(N)'],
+            ['arr.pop()', '맨 뒤를 빼서 준다', '뺀 값', 'O(1)'],
+            ['arr.pop(i)', 'i번째를 빼서 준다', '뺀 값', 'O(N)'],
+            ['arr.remove(x)', '값이 x인 첫 원소를 지운다', 'None', 'O(N)'],
+            ['arr.clear()', '전부 비운다', 'None', 'O(N)'],
+            ['arr.index(x)', 'x가 처음 나오는 자리', '인덱스 (없으면 오류)', 'O(N)'],
+            ['arr.count(x)', 'x가 몇 개인가', '개수', 'O(N)'],
+            ['arr.sort()', '제자리에서 정렬한다', 'None', 'O(N log N)'],
+            ['arr.reverse()', '제자리에서 뒤집는다', 'None', 'O(N)'],
+            ['arr.copy()', '한 겹만 복사한다', '새 리스트', 'O(N)'],
+          ]}
+        />
+
+        <p>
+          아래는 메서드가 아니라 <strong>내장 함수</strong>입니다. 리스트를 건드리지 않고
+          <strong>새 값을 돌려주는</strong> 쪽이라 헷갈리지 않습니다.
+        </p>
+
+        <Table
+          head={['함수', '하는 일', '돌려주는 값', '복잡도']}
+          rows={[
+            ['len(arr)', '개수', '정수', 'O(1)'],
+            ['sum(arr)', '합', '수', 'O(N)'],
+            ['max(arr) · min(arr)', '최대 · 최소', '원소', 'O(N)'],
+            ['sorted(arr)', '정렬한 새 리스트', '새 리스트', 'O(N log N)'],
+            ['reversed(arr)', '거꾸로 훑는 반복자', '반복자 (list로 감싸 쓴다)', 'O(1)'],
+            ['enumerate(arr)', '(번호, 값) 짝', '반복자', 'O(1)'],
+            ['zip(a, b)', '나란히 묶는다', '반복자', 'O(1)'],
+            ['list(x)', '리스트로 만든다', '새 리스트', 'O(N)'],
+          ]}
+        />
+
+        <Note tone="danger" title="arr = arr.sort() 는 리스트를 잃는 코드입니다">
+          <p>
+            제자리에서 고치는 메서드(<Term>sort</Term>·<Term>reverse</Term>·<Term>append</Term>)는
+            <strong>모두 <Term>None</Term>을 돌려줍니다.</strong> 그 결과를 다시 담으면
+            변수에 <Term>None</Term>이 들어가고, 다음 줄에서
+            <Term>TypeError</Term>가 납니다. 새 리스트가 필요하면
+            <Term>sorted()</Term>·<Term>reversed()</Term>처럼 <strong>함수 쪽</strong>을 쓰세요.
+          </p>
+        </Note>
+      </Section>
+
       <Quiz
         question="board = [[0] * 1000 for _ in range(1000)] 대신 [[0] * 1000] * 1000 을 썼습니다. 무슨 일이 벌어질까요?"
         choices={[

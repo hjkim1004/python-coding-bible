@@ -1,6 +1,7 @@
 import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
 import Recall from '../../components/Recall';
+import Table from '../../components/Table';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
 import Term from '../../components/Term';
@@ -158,6 +159,47 @@ print((3, 4) in visited)      # True
 n, m = 5, 5
 grid_visited = [[False] * m for _ in range(n)]
 `}</Code>
+      </Section>
+
+      <Section no={5} title="딕셔너리와 집합 메서드 한눈에">
+        <Table
+          head={['딕셔너리', '하는 일', '돌려주는 값', '복잡도']}
+          rows={[
+            ["d[k]", '꺼낸다', '값 (없으면 KeyError)', 'O(1)'],
+            ["d.get(k, 기본값)", '꺼내되 없으면 기본값', '값', 'O(1)'],
+            ["d[k] = v", '넣거나 덮어쓴다', '—', 'O(1)'],
+            ["d.setdefault(k, v)", '없을 때만 넣는다', '들어 있는 값', 'O(1)'],
+            ["d.pop(k, 기본값)", '빼서 준다', '뺀 값', 'O(1)'],
+            ["k in d", '그 키가 있나', 'True / False', 'O(1)'],
+            ["d.keys() · values() · items()", '키 · 값 · 짝을 훑는다', '뷰 (for 로 돈다)', 'O(1)'],
+            ["d.update(other)", '다른 딕셔너리를 합친다', 'None', 'O(k)'],
+            ["len(d)", '짝이 몇 개인가', '정수', 'O(1)'],
+          ]}
+        />
+
+        <Table
+          head={['집합', '하는 일', '돌려주는 값', '복잡도']}
+          rows={[
+            ['s.add(x)', '하나 넣는다', 'None', 'O(1)'],
+            ['s.discard(x)', '지운다 (없어도 조용하다)', 'None', 'O(1)'],
+            ['s.remove(x)', '지운다 (없으면 KeyError)', 'None', 'O(1)'],
+            ['x in s', '있나', 'True / False', 'O(1)'],
+            ['a & b · a.intersection(b)', '교집합', '새 집합', 'O(min)'],
+            ['a | b · a.union(b)', '합집합', '새 집합', 'O(N+M)'],
+            ['a - b · a.difference(b)', '차집합', '새 집합', 'O(N)'],
+            ['a ^ b', '한쪽에만 있는 것', '새 집합', 'O(N+M)'],
+            ['a <= b · a.issubset(b)', 'a가 b에 다 들어 있나', 'True / False', 'O(N)'],
+          ]}
+        />
+
+        <Note tone="warn" title="remove 와 discard 의 차이가 답을 가릅니다">
+          <p>
+            <Term>remove</Term>는 없는 것을 지우려 하면 <strong>멈춥니다</strong>.
+            <Term>discard</Term>는 조용히 넘어갑니다. «있으면 지운다»가 뜻이라면
+            <Term>discard</Term>가 맞고, 없을 리 없다고 확신할 때만
+            <Term>remove</Term>를 쓰세요 — 그 확신이 틀리면 그 자리에서 알려 주니까요.
+          </p>
+        </Note>
       </Section>
 
       <Quiz

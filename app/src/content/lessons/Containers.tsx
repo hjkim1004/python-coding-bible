@@ -2,6 +2,7 @@ import Code from '../../components/Code';
 import Lesson, { Section } from '../../components/Lesson';
 import Note from '../../components/Note';
 import Quiz from '../../components/Quiz';
+import Table from '../../components/Table';
 import Term from '../../components/Term';
 
 export default function Containers() {
@@ -131,6 +132,26 @@ print(divmod(7, 2))    # => (3, 1)
           세 가지의 «숨은 비용»과 더 빠른 쓰임은 1-3과 1-5에서 이어집니다.
           지금은 <strong>담고 꺼내는 법</strong>만 손에 익히면 충분합니다.
         </p>
+      </Section>
+
+      <Section no={5} title="여기까지의 손버릇">
+        <p>
+          0부에서 쓸 것만 모았습니다. <strong>더 많은 메서드와 그 비용은 1-3·1-5</strong>에서
+          표로 다시 정리합니다.
+        </p>
+
+        <Table
+          head={['하고 싶은 일', '리스트', '딕셔너리']}
+          rows={[
+            ['만들기', 'arr = [] 또는 [1, 2]', "d = {} 또는 {'a': 1}"],
+            ['꺼내기', 'arr[0] · arr[-1]', "d['a'] · d.get('a', 0)"],
+            ['넣기', 'arr.append(x)', "d['b'] = 2"],
+            ['빼기', 'arr.pop()', "d.pop('a')"],
+            ['있나 보기', 'x in arr', "'a' in d"],
+            ['개수', 'len(arr)', 'len(d)'],
+            ['전부 훑기', 'for x in arr:', 'for k, v in d.items():'],
+          ]}
+        />
       </Section>
 
       <Quiz

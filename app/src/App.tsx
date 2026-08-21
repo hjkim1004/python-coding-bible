@@ -16,19 +16,44 @@ export default function App() {
   const { done, toggle: toggleDone, isDone } = useProgress();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const lesson = useMemo(() => ALL_LESSONS.find((l) => l.id === route) ?? null, [route]);
+  const lesson = useMemo(() => ALL_LESSONS.find((l) => l.id === route.lesson) ?? null, [route.lesson]);
   const index = lesson ? ALL_LESSONS.indexOf(lesson) : -1;
   const prev = index > 0 ? ALL_LESSONS[index - 1] : null;
   const next = index >= 0 && index < ALL_LESSONS.length - 1 ? ALL_LESSONS[index + 1] : null;
 
-  const notFound = !lesson && route !== '';
+  const notFound = !lesson && route.lesson !== '';
   useDocumentTitle(lesson?.title ?? (notFound ? '찾지 못했습니다' : undefined));
 
-  // 강을 옮기면 글의 처음부터 읽어야 한다
+  // 강을 옮기면 글의 처음부터. 다만 절을 콕 집어 왔다면 그 자리에서 연다.
   useEffect(() => {
-    window.scrollTo({ top: 0 });
     setDrawerOpen(false);
-  }, [route]);
+
+    if (!route.anchor) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+
+    // 강은 읽을 때 받아 오므로 절이 아직 화면에 없을 수 있다.
+    // 놓일 때까지 잠깐 기다리되, 오지 않으면 3초에서 포기한다.
+    const deadline = 3000;
+    const step = 50;
+    let waited = 0;
+    let timer = 0;
+
+    const findIt = () => {
+      const target = document.getElementById(route.anchor!);
+      if (target) {
+        target.scrollIntoView({ block: 'start' });
+        window.clearInterval(timer);
+      } else if ((waited += step) >= deadline) {
+        window.clearInterval(timer);
+      }
+    };
+
+    timer = window.setInterval(findIt, step);
+    findIt();
+    return () => window.clearInterval(timer);
+  }, [route.lesson, route.anchor]);
 
   // 다음 강은 미리 받아 둔다 — 지금 화면을 다 그린 뒤, 한가할 때만
   useEffect(() => {
@@ -66,7 +91,7 @@ export default function App() {
       <a className="skip" href="#content">본문으로 건너뛰기</a>
 
       <Sidebar
-        route={route}
+        route={route.lesson}
         open={drawerOpen}
         doneCount={done.length}
         isDone={isDone}
@@ -99,7 +124,7 @@ export default function App() {
               <Body />
             </Suspense>
           ) : notFound ? (
-            <NotFound route={route} />
+            <NotFound route={route.raw} />
           ) : (
             <Intro />
           )}

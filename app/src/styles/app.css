@@ -471,6 +471,58 @@
 .tok-builtin { color: var(--code-builtin); }
 .tok-name    { color: var(--code-name); }
 
+/* ── 개요 ───────────────────────────────────────────────────── */
+
+/* 절 제목에서 그대로 뽑은 차례. 카드가 아니라 «앞으로 볼 것을 훑는 자리» 다 */
+.outline {
+  margin-top: var(--s3);
+  padding: var(--s2) var(--s2h);
+  border-radius: var(--radius-lg);
+  background: var(--sunken);
+}
+
+.outline__kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: var(--s1h);
+}
+
+.outline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s0);
+}
+@media (min-width: 44em) {
+  .outline__list { grid-template-columns: 1fr 1fr; gap: var(--s0) var(--s2); }
+}
+
+.outline__list a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s1);
+  padding: var(--s0) 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-sub);
+  text-decoration: none;
+}
+.outline__list a:hover { color: var(--accent); text-decoration: none; }
+
+.outline__no {
+  flex-shrink: 0;
+  min-width: 1.125rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-faint);
+}
+.outline__list a:hover .outline__no { color: var(--accent); }
+
 /* ── 되짚기 ─────────────────────────────────────────────────── */
 
 /* 카드가 아니라 «잠깐 숨을 고르는 자리» 다 — 떠 있지 않으므로 그늘도 없다 */
